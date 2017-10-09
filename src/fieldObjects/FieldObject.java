@@ -1,8 +1,7 @@
 package fieldObjects;
 
 public interface FieldObject {
-    static void interactWithSnake() {
-    }
+    void interactWithSnake();
 }
 
 abstract class FieldObject_{

@@ -9,6 +9,7 @@ public class Wall implements FieldObject {
         this.y = y;
     }
 
-    public static void interactWithSnake(){}
+    public void interactWithSnake(){
 
+    }
 }

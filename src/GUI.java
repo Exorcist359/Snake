@@ -28,5 +28,6 @@ public class GUI extends JFrame{
 
         gr2d.setPaint(Color.black);
         g.fillRect(100,100, 100, 100);
+        g.drawRect(25,25,WIN_WIDTH-50, WIN_HEIGHT-50);
     }
 }

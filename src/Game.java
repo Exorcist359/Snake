@@ -6,9 +6,9 @@ import java.util.TimerTask;
 
 
 public class Game {
-    private static FieldObject[][] field;
-    private static int height;
-    private static int width;
+    private FieldObject[][] field;
+    private int height;
+    private int width;
 
     public Game(int seed){
         field = Level.getLevel(seed);//??? Think about Level
@@ -25,7 +25,7 @@ public class Game {
         t.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                System.out.println("GG");
+                System.out.println("GG");//for del
                 tick();
                 if(gameOver() == true)
                     t.cancel();
