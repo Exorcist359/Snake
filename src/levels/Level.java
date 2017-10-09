@@ -5,13 +5,13 @@ import fieldObjects.Wall;
 
 public class Level {
 
-    /*
+
     public Level(int seed){
         //here will be working with seeds for maps, maybe levels will be from txt files
         //What do this class: upload seed.txt, parsing data, put to FieldObject[][], set width and height
         String[][] map = getMap(seed);
         FieldObject[][] field = mapsParser(map);
-    }*/
+    }
 
     public static FieldObject[][] getLevel(int seed){
         String[][] map = getMap(seed);
@@ -26,7 +26,7 @@ public class Level {
                 {"#        #"},
                 {"#        #"},
                 {"#        #"},
-                {"#        #"},
+                {"#  @     #"},
                 {"#        #"},
                 {"#        #"},
                 {"##########"}

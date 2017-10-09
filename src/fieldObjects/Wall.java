@@ -1,14 +1,13 @@
 package fieldObjects;
 
-public class Wall implements FieldObject {
+public class Wall extends FieldObject {
     private static int x;
     private static int y;
 
-    public Wall(int x, int y){
-        this.x = x;
-        this.y = y;
+    public Wall(int x, int y) {
+        super(x, y);
     }
 
-    public static void interactWithSnake(){}
+    public void interactWithSnake(){}
 
 }
