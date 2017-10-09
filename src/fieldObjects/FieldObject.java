@@ -1,11 +1,11 @@
 package fieldObjects;
 
 abstract class FieldObject{
-    public final int coloumn;
+    public final int column;
     public final int row;
 
-    public FieldObject(int coloumn, int row){
-        this.coloumn = coloumn;
+    public FieldObject(int column, int row){
+        this.column = column;
         this.row = row;
     }
 

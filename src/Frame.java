@@ -53,6 +53,7 @@ public class Frame extends JFrame{
                 if(game.gameOver() == true)
                     t.cancel();
 
+
             }
 
         }, 0 , 1*1000);
