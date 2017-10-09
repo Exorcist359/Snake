@@ -3,8 +3,7 @@ package levels;
 import java.util.HashMap;
 import java.util.Map;
 
-import fieldObjects.FieldObject;
-import fieldObjects.Wall;
+import fieldObjects.*;
 
 public class Level {    
 	private static HashMap<Integer, String[]> maps;

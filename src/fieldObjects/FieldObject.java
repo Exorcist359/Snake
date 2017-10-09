@@ -1,6 +1,6 @@
 package fieldObjects;
 
-abstract class FieldObject{
+public abstract class FieldObject{
     public final int column;
     public final int row;
 
