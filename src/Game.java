@@ -4,7 +4,7 @@ import levels.Level;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
+//somethings
 public class Game {
     private FieldObject[][] field;
     private int height;
@@ -16,7 +16,7 @@ public class Game {
         width = 10;//get from Level too
         startGame();
     }
-
+    
     private static void startGame(){
         GUI gui = new GUI();
 
@@ -34,12 +34,16 @@ public class Game {
         }, 0 , 1*1000);
     }
 
-    public static void tick() {
+    public void tick() {
         //something
 
     }
+    
+    public void turn(SnakeDirection dir) {
+    	
+    }
 
-    public static boolean gameOver(){
+    public boolean gameOver(){
         return false;
     }
 }
