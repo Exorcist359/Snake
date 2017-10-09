@@ -4,7 +4,7 @@ import levels.Level;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
+//somethings
 public class Game {
     private static FieldObject[][] field;
     private static int height;
