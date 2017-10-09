@@ -6,9 +6,9 @@ import java.util.TimerTask;
 
 //somethings
 public class Game {
-    private static FieldObject[][] field;
-    private static int height;
-    private static int width;
+    private FieldObject[][] field;
+    private int height;
+    private int width;
 
     public Game(int seed){
         field = Level.getLevel(seed);//??? Think about Level
@@ -16,7 +16,7 @@ public class Game {
         width = 10;//get from Level too
         startGame();
     }
-
+    
     private static void startGame(){
         GUI gui = new GUI();
 
@@ -34,12 +34,16 @@ public class Game {
         }, 0 , 1*1000);
     }
 
-    public static void tick() {
+    public void tick() {
         //something
 
     }
+    
+    public void turn(SnakeDirection dir) {
+    	
+    }
 
-    public static boolean gameOver(){
+    public boolean gameOver(){
         return false;
     }
 }
