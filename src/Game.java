@@ -33,9 +33,14 @@ public class Game {
     }
 
 	public void turn(SnakeDirection dir) {
-    	direction = dir;
+    	if (!(dir == direction ||
+				(direction == SnakeDirection.Down && dir == SnakeDirection.Up) ||
+				(direction == SnakeDirection.Up && dir == SnakeDirection.Down)||
+				(direction == SnakeDirection.Right && dir == SnakeDirection.Left)||
+				(direction == SnakeDirection.Left && dir == SnakeDirection.Right)))
+    		direction = dir;
     }
-	
+
 	public ArrayList<FieldObject> getAllObjects() {
 		ArrayList<FieldObject> all = new ArrayList<FieldObject>(walls);
 		all.addAll(snake);
@@ -108,7 +113,7 @@ public class Game {
     }
 
     private void moveSnakeSteply() {
-		for (int i = snake.size() - 1; i > 0; i++)
+		for (int i = snake.size() - 1; i > 0; i--)
     	{
     		snake.get(i).row = snake.get(i - 1).row;
     		snake.get(i).column = snake.get(i - 1).column;

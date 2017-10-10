@@ -10,36 +10,49 @@ import levels.Level;
 public class Frame extends JFrame{
 
     private static Game game;
-    private final int WIN_WIDTH = 500;
-    private final int WIN_HEIGHT = 500;
+    private int WIN_WIDTH = 500;
+    private int WIN_HEIGHT = 500;
+    private int SELL_SIZE = 25;
     private final int SEED = 1;
 
     public Frame(){
         super("Snake");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setBounds(100, 100, WIN_WIDTH, WIN_HEIGHT);
         this.getContentPane().setBackground(Color.white);
         setVisible(true);
     }
 
-    private Game game = new Game(new Level(SEED));
-    public void execute(){
+    private SnakeDirection snakeDir;
+    private boolean isDirectionChanged = false;
+
+    public void execute() throws Exception {
+        game = new Game(new Level(SEED));
+        WIN_HEIGHT = game.height * SELL_SIZE;
+        WIN_WIDTH = game.width * SELL_SIZE;
+
+        this.setBounds(100, 100, WIN_WIDTH, WIN_HEIGHT);
 
         this.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyCode()){
                     case 37:
-                        game.turn(SnakeDirection.Left);
+                        snakeDir = SnakeDirection.Left;
+                        isDirectionChanged = true;
                         break;
                     case 38:
-                        game.turn(SnakeDirection.Up);
+                        snakeDir = SnakeDirection.Up;
+                        isDirectionChanged = true;
                         break;
                     case 39:
-                        game.turn(SnakeDirection.Right);
+                        snakeDir = SnakeDirection.Right;
+                        isDirectionChanged = true;
                         break;
                     case 40:
-                        game.turn(SnakeDirection.Down);
+                        snakeDir = SnakeDirection.Down;
+                        isDirectionChanged = true;
+                        break;
+
                 }
             }
         });
@@ -49,13 +62,17 @@ public class Frame extends JFrame{
 
             @Override
             public void run() {
+                if(isDirectionChanged){
+                    game.turn(snakeDir);
+                    isDirectionChanged = false;
+                };
                 game.tick();
                 if(game.isGameOver() == true)
                     t.cancel();
                 repaint();
             }
 
-        }, 0 , 1000);
+        }, 0 , 250);
 
     }
 
@@ -66,12 +83,21 @@ public class Frame extends JFrame{
         super.paint(g);
         Graphics2D gr2d = (Graphics2D) g;
 
-        for(int row = 0; row < game.height; row++)
-            for(int column = 0; column < game.width; column++){
-                if (game.field[][] )
-            }
-
         gr2d.setPaint(Color.black);
-        g.fillRect(100,100, 50, 50);
+
+        game.getWalls().forEach(wall ->
+                g.fillRect(wall.column*SELL_SIZE, wall.row*SELL_SIZE, SELL_SIZE, SELL_SIZE));
+
+        gr2d.setPaint(Color.green);
+        game.getSnake().forEach(snakePart ->
+                g.fillRect(snakePart.column*SELL_SIZE, snakePart.row*SELL_SIZE, SELL_SIZE, SELL_SIZE));
+
+        gr2d.setPaint(Color.YELLOW);
+        g.fillRect(game.getSnakeHead().column*SELL_SIZE, game.getSnakeHead().row*SELL_SIZE, SELL_SIZE, SELL_SIZE);
+
+        gr2d.setPaint(Color.red);
+        g.fillRect(game.getApple().column*SELL_SIZE, game.getApple().row*SELL_SIZE, SELL_SIZE, SELL_SIZE);
+
+
     }
 }

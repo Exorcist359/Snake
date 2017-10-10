@@ -55,7 +55,7 @@ public class Level {
     private ArrayList<Wall> mapsParser(String[] map){
         //TODO normal parser!!!
         //const should be computing automatically
-    	
+    	ArrayList<Wall> field = new ArrayList<Wall>();
         for (int i = 0; i < height; i++)
             for (int j = 0; j < width; j++) {
                 if (map[i].charAt(j) == '#')
