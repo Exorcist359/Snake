@@ -1,5 +1,6 @@
 package levels;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,7 +8,7 @@ import fieldObjects.*;
 
 public class Level {    
 	private static HashMap<Integer, String[]> maps;
-	public final FieldObject[][] field;
+	public final ArrayList<Wall> field;
 	public final int height;
 	public final int width;
 	
@@ -18,9 +19,9 @@ public class Level {
     	maps.put(1, new String[]{
                 "##########",
                 "#        #",
-                "#    S   #",
-                "#    S   #",
-                "#    H   #",
+                "#        #",
+                "#        #",
+                "#        #",
                 "#        #",
                 "#        #",
                 "##########"
@@ -34,18 +35,15 @@ public class Level {
         field = mapsParser(map);
     }
 
-    private FieldObject[][] mapsParser(String[] map){
+    private ArrayList<Wall> mapsParser(String[] map){
         //TODO normal parser!!!
         //const should be computing automatically
-        FieldObject[][] field = new FieldObject[height][width];
+    	
         for (int i = 0; i < height; i++)
             for (int j = 0; j < width; j++) {
                 if (map[i].charAt(j) == '#')
-                	field[i][j] = new Wall(i, j);
-                if (map[i].charAt(j) == 'H')
-                	field[i][j] = new SnakeHead(i, j);
+                	field.add(new Wall(i, j));
             }
-
         return field;
     }
 

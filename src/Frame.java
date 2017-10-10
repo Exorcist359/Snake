@@ -50,7 +50,7 @@ public class Frame extends JFrame{
             @Override
             public void run() {
                 game.tick();
-                if(game.gameOver() == true)
+                if(game.isGameOver() == true)
                     t.cancel();
 
 
