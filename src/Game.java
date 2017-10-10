@@ -33,7 +33,12 @@ public class Game {
     }
 
 	public void turn(SnakeDirection dir) {
-    	direction = dir;
+    	if (!(dir == direction ||
+				(direction == SnakeDirection.Down && dir == SnakeDirection.Up) ||
+				(direction == SnakeDirection.Up && dir == SnakeDirection.Down)||
+				(direction == SnakeDirection.Right && dir == SnakeDirection.Left)||
+				(direction == SnakeDirection.Left && dir == SnakeDirection.Right)))
+    		direction = dir;
     }
 	//it isn't free yet
     private Point generateFreePosition()
@@ -44,7 +49,8 @@ public class Game {
 		return new Point(column, row);
     }
     
-    private void putSnake() { // написать нормальную генерацию
+    private void putSnake() {
+    	snake = new ArrayList<SnakePart>();
 		Point newPos = generateFreePosition();
     	if (newPos.x > width - newPos.x + 1)
 			direction = SnakeDirection.Right;
@@ -82,7 +88,7 @@ public class Game {
     }
 
     private void moveSnakeSteply() {
-		for (int i = snake.size() - 1; i > 0; i++)
+		for (int i = snake.size() - 1; i > 0; i--)
     	{
     		snake.get(i).row = snake.get(i - 1).row;
     		snake.get(i).column = snake.get(i - 1).column;
@@ -102,10 +108,6 @@ public class Game {
 
 	private void putApple() {
 		Point newPos = generateFreePosition();
-    	if (newPos.x > width - newPos.x + 1)
-			direction = SnakeDirection.Right;
-		else
-			direction = SnakeDirection.Left;
 		apple = new Apple(newPos.x, newPos.y);
 	}
     
