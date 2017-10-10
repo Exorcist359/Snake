@@ -1,10 +1,10 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Dictionary;
-import java.util.Enumeration;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.*;
+
+import fieldObjects.FieldObject;
 import levels.Level;
 
 public class Frame extends JFrame{
@@ -12,7 +12,7 @@ public class Frame extends JFrame{
     private static Game game;
     private final int WIN_WIDTH = 500;
     private final int WIN_HEIGHT = 500;
-    private final int SEED = 123;
+    private final int SEED = 1;
 
     public Frame(){
         super("Snake");
@@ -22,8 +22,8 @@ public class Frame extends JFrame{
         setVisible(true);
     }
 
+    private Game game = new Game(new Level(SEED));
     public void execute(){
-        Game game = new Game(new Level(SEED));
 
         this.addKeyListener(new KeyAdapter() {
             @Override
@@ -52,11 +52,10 @@ public class Frame extends JFrame{
                 game.tick();
                 if(game.isGameOver() == true)
                     t.cancel();
-
-
+                repaint();
             }
 
-        }, 0 , 1*1000);
+        }, 0 , 1000);
 
     }
 
@@ -65,10 +64,14 @@ public class Frame extends JFrame{
         g.clearRect(0, 0, WIN_WIDTH, WIN_HEIGHT);
 
         super.paint(g);
-
         Graphics2D gr2d = (Graphics2D) g;
 
+        for(int row = 0; row < game.height; row++)
+            for(int column = 0; column < game.width; column++){
+                if (game.field[][] )
+            }
+
         gr2d.setPaint(Color.black);
-        g.fillRect(100,100, 100, 100);
+        g.fillRect(100,100, 50, 50);
     }
 }

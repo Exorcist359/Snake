@@ -7,6 +7,7 @@ import java.util.Random;
 import java.util.function.Consumer;
 
 public class Game {
+
     //public FieldObject[][] field;
     public final int height;
     public final int width;
