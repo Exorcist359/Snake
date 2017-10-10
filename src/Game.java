@@ -19,7 +19,6 @@ public class Game {
 	private boolean gameOver = false;
     
     public Game(Level level) throws Exception{
-        //field = level.field;
         height = level.height;
         width = level.width;
         if (height < 2 || width < 2)
@@ -44,6 +43,16 @@ public class Game {
 		return all;
 	}
 	
+    private void putSnake() {
+		Point newPos = generateFreePosition();
+    	if (newPos.x > width - newPos.x + 1)
+			direction = SnakeDirection.Right;
+		else
+			direction = SnakeDirection.Left;
+		head = new SnakeHead(newPos.x, newPos.y);
+		snake.add(head);
+	}
+
 	private boolean isPositionFree(Point pos) {
 		ArrayList<FieldObject> all = getAllObjects();
 		for (int i = 0; i < all.size(); i++) {
@@ -70,17 +79,7 @@ public class Game {
     		}
     	}
 	}
-    
-    private void putSnake() {
-		Point newPos = generateFreePosition();
-    	if (newPos.x > width - newPos.x + 1)
-			direction = SnakeDirection.Right;
-		else
-			direction = SnakeDirection.Left;
-		head = new SnakeHead(newPos.x, newPos.y);
-		snake.add(head);
-	}
-    
+ 
     private void moveSnake() {
     	Point newHeadPos = getPositionAfterMovement(
     			direction, new Point(head.column, head.row));
@@ -88,9 +87,9 @@ public class Game {
     	{
     		eatApple();
     	}
+    	moveSnakeSteply();
     	head.column = newHeadPos.x;
     	head.row = newHeadPos.y;
-    	moveSnakeSteply();	
     }
 
     private Point getPositionAfterMovement(SnakeDirection direction, Point from)
@@ -136,7 +135,7 @@ public class Game {
         return gameOver;
     }
     
-    public int getPoints() {
+    public int getScore() {
     	return snake.size() - 1;
     }
 
