@@ -42,7 +42,7 @@ public class Level {
         for (int i = 0; i < height; i++)
             for (int j = 0; j < width; j++) {
                 if (map[i].charAt(j) == '#')
-                	field.add(new Wall(i, j));
+                	field.add(new Wall(j, i));
             }
         return field;
     }

@@ -4,6 +4,7 @@ import levels.Level;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.function.Consumer;
 
 public class Game {
     //public FieldObject[][] field;
@@ -34,16 +35,42 @@ public class Game {
 	public void turn(SnakeDirection dir) {
     	direction = dir;
     }
-	//it isn't free yet
+	
+	public ArrayList<FieldObject> getAllObjects() {
+		ArrayList<FieldObject> all = new ArrayList<FieldObject>(walls);
+		all.addAll(snake);
+		all.add(apple);
+		return all;
+	}
+	
+	private boolean isPositionFree(Point pos) {
+		ArrayList<FieldObject> all = getAllObjects();
+		for (int i = 0; i < all.size(); i++) {
+			FieldObject obj = all.get(i);
+			if (obj.row == pos.y && obj.column == pos.x)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+	
     private Point generateFreePosition()
     {
-    	Random rnd = new Random();
-		int row = rnd.nextInt(height - 2) + 1;
-		int column = rnd.nextInt(width - 2) + 1;
-		return new Point(column, row);
-    }
+		Random rnd = new Random();
+    	while (true)
+    	{
+    		int row = rnd.nextInt(height);
+    		int column = rnd.nextInt(width);
+    		Point point = new Point(column, row);
+    		if (isPositionFree(point))
+    		{	
+    			return point;
+    		}
+    	}
+	}
     
-    private void putSnake() { // написать нормальную генерацию
+    private void putSnake() {
 		Point newPos = generateFreePosition();
     	if (newPos.x > width - newPos.x + 1)
 			direction = SnakeDirection.Right;
@@ -101,10 +128,6 @@ public class Game {
 
 	private void putApple() {
 		Point newPos = generateFreePosition();
-    	if (newPos.x > width - newPos.x + 1)
-			direction = SnakeDirection.Right;
-		else
-			direction = SnakeDirection.Left;
 		apple = new Apple(newPos.x, newPos.y);
 	}
     
