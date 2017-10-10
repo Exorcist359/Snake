@@ -4,6 +4,7 @@ import levels.Level;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.function.Consumer;
 
 public class Game {
 
@@ -18,7 +19,6 @@ public class Game {
 	private boolean gameOver = false;
     
     public Game(Level level) throws Exception{
-        //field = level.field;
         height = level.height;
         width = level.width;
         if (height < 2 || width < 2)
@@ -40,17 +40,15 @@ public class Game {
 				(direction == SnakeDirection.Left && dir == SnakeDirection.Right)))
     		direction = dir;
     }
-	//it isn't free yet
-    private Point generateFreePosition()
-    {
-    	Random rnd = new Random();
-		int row = rnd.nextInt(height - 2) + 1;
-		int column = rnd.nextInt(width - 2) + 1;
-		return new Point(column, row);
-    }
-    
+
+	public ArrayList<FieldObject> getAllObjects() {
+		ArrayList<FieldObject> all = new ArrayList<FieldObject>(walls);
+		all.addAll(snake);
+		all.add(apple);
+		return all;
+	}
+	
     private void putSnake() {
-    	snake = new ArrayList<SnakePart>();
 		Point newPos = generateFreePosition();
     	if (newPos.x > width - newPos.x + 1)
 			direction = SnakeDirection.Right;
@@ -59,7 +57,34 @@ public class Game {
 		head = new SnakeHead(newPos.x, newPos.y);
 		snake.add(head);
 	}
-    
+
+	private boolean isPositionFree(Point pos) {
+		ArrayList<FieldObject> all = getAllObjects();
+		for (int i = 0; i < all.size(); i++) {
+			FieldObject obj = all.get(i);
+			if (obj.row == pos.y && obj.column == pos.x)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+	
+    private Point generateFreePosition()
+    {
+		Random rnd = new Random();
+    	while (true)
+    	{
+    		int row = rnd.nextInt(height);
+    		int column = rnd.nextInt(width);
+    		Point point = new Point(column, row);
+    		if (isPositionFree(point))
+    		{	
+    			return point;
+    		}
+    	}
+	}
+ 
     private void moveSnake() {
     	Point newHeadPos = getPositionAfterMovement(
     			direction, new Point(head.column, head.row));
@@ -67,9 +92,9 @@ public class Game {
     	{
     		eatApple();
     	}
+    	moveSnakeSteply();
     	head.column = newHeadPos.x;
     	head.row = newHeadPos.y;
-    	moveSnakeSteply();	
     }
 
     private Point getPositionAfterMovement(SnakeDirection direction, Point from)
@@ -115,7 +140,7 @@ public class Game {
         return gameOver;
     }
     
-    public int getPoints() {
+    public int getScore() {
     	return snake.size() - 1;
     }
 
