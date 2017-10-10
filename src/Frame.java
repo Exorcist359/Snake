@@ -14,6 +14,8 @@ public class Frame extends JFrame{
     private int WIN_HEIGHT = 500;
     private int SELL_SIZE = 25;
     private final int SEED = 1;
+    private final int X_OFFSET = 7;
+    private final int Y_OFFSET = 30;
 
     public Frame(){
         super("Snake");
@@ -27,8 +29,8 @@ public class Frame extends JFrame{
 
     public void execute() throws Exception {
         game = new Game(new Level(SEED));
-        WIN_HEIGHT = game.height * SELL_SIZE;
-        WIN_WIDTH = game.width * SELL_SIZE;
+        WIN_HEIGHT = game.height * SELL_SIZE+37;
+        WIN_WIDTH = game.width * SELL_SIZE+14;
 
         this.setBounds(100, 100, WIN_WIDTH, WIN_HEIGHT);
 
@@ -86,17 +88,19 @@ public class Frame extends JFrame{
         gr2d.setPaint(Color.black);
 
         game.getWalls().forEach(wall ->
-                g.fillRect(wall.column*SELL_SIZE, wall.row*SELL_SIZE, SELL_SIZE, SELL_SIZE));
+                g.fillRect(wall.column*SELL_SIZE+X_OFFSET, wall.row*SELL_SIZE+Y_OFFSET, SELL_SIZE, SELL_SIZE));
 
         gr2d.setPaint(Color.green);
         game.getSnake().forEach(snakePart ->
-                g.fillRect(snakePart.column*SELL_SIZE, snakePart.row*SELL_SIZE, SELL_SIZE, SELL_SIZE));
+                g.fillRect(snakePart.column*SELL_SIZE+X_OFFSET, snakePart.row*SELL_SIZE+Y_OFFSET, SELL_SIZE, SELL_SIZE));
 
         gr2d.setPaint(Color.YELLOW);
-        g.fillRect(game.getSnakeHead().column*SELL_SIZE, game.getSnakeHead().row*SELL_SIZE, SELL_SIZE, SELL_SIZE);
+        g.fillRect(game.getSnakeHead().column*SELL_SIZE+X_OFFSET, game.getSnakeHead().row*SELL_SIZE+Y_OFFSET,
+                SELL_SIZE, SELL_SIZE);
 
         gr2d.setPaint(Color.red);
-        g.fillRect(game.getApple().column*SELL_SIZE, game.getApple().row*SELL_SIZE, SELL_SIZE, SELL_SIZE);
+        g.fillRect(game.getApple().column*SELL_SIZE+X_OFFSET, game.getApple().row*SELL_SIZE+Y_OFFSET,
+                SELL_SIZE, SELL_SIZE);
 
 
     }

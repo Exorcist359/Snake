@@ -44,11 +44,13 @@ public class Game {
 	public ArrayList<FieldObject> getAllObjects() {
 		ArrayList<FieldObject> all = new ArrayList<FieldObject>(walls);
 		all.addAll(snake);
-		all.add(apple);
+		if (apple != null)
+			all.add(apple);
 		return all;
 	}
 	
     private void putSnake() {
+    	snake = new ArrayList<SnakePart>();
 		Point newPos = generateFreePosition();
     	if (newPos.x > width - newPos.x + 1)
 			direction = SnakeDirection.Right;
