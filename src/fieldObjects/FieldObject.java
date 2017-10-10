@@ -1,8 +1,8 @@
 package fieldObjects;
 
 public abstract class FieldObject{
-    public final int column;
-    public final int row;
+    public int column;
+    public int row;
 
     public FieldObject(int column, int row){
         this.column = column;
