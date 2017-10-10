@@ -6,9 +6,9 @@ import java.util.TimerTask;
 
 //somethings
 public class Game {
-    private FieldObject[][] field;
-    private int height;
-    private int width;
+    public FieldObject[][] field;
+    public int height;
+    public int width;
 
     public Game(Level level){
         field = level.field;//??? Think about Level
