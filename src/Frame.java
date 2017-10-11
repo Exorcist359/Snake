@@ -4,16 +4,14 @@ import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.*;
 
-import fieldObjects.FieldObject;
 import levels.Level;
 
 public class Frame extends JFrame{
-
     private static Game game;
     private int WIN_WIDTH = 500;
     private int WIN_HEIGHT = 500;
     private int SELL_SIZE = 25;
-    private final int SEED = 1;
+    private final int SEED = 4;
     private final int X_OFFSET = 7;
     private final int Y_OFFSET = 30;
 

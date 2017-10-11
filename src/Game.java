@@ -4,11 +4,8 @@ import levels.Level;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.function.Consumer;
 
 public class Game {
-
-    //public FieldObject[][] field;
     public final int height;
     public final int width;
     private ArrayList<Wall> walls;
@@ -53,9 +50,9 @@ public class Game {
     	snake = new ArrayList<SnakePart>();
 		Point newPos = generateFreePosition();
     	if (newPos.x > width - newPos.x + 1)
-			direction = SnakeDirection.Right;
-		else
 			direction = SnakeDirection.Left;
+		else
+			direction = SnakeDirection.Right;
 		head = new SnakeHead(newPos.x, newPos.y);
 		snake.add(head);
 	}
@@ -90,11 +87,17 @@ public class Game {
     private void moveSnake() {
     	Point newHeadPos = getPositionAfterMovement(
     			direction, new Point(head.column, head.row));
-    	if (isAppleOnPosition(newHeadPos))
-    	{
-    		eatApple();
-    	}
     	moveSnakeSteply();
+    	if (!isPositionFree(newHeadPos)) {
+    		if (isAppleOnPosition(newHeadPos))
+    		{
+    			eatApple();
+    		}
+    		else
+    		{
+    			gameOver = true;
+    		}
+    	}
     	head.column = newHeadPos.x;
     	head.row = newHeadPos.y;
     }
