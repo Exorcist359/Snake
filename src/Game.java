@@ -82,7 +82,7 @@ public class Game {
     			return point;
     		}
     	}
-	}
+    }
  
     private void moveSnake() {
     	Point newHeadPos = getPositionAfterMovement(
