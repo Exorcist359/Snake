@@ -2,7 +2,6 @@ package levels;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 import fieldObjects.*;
 
@@ -43,6 +42,69 @@ public class Level {
                 "#                  #",
                 "####################"
     	});
+    	maps.put(3, new String[]{
+                "########################",
+                "#                      #",
+                "#      #######         #",
+                "#   ####               #",
+                "#   #                  #",
+                "#   #     ####         #",
+                "#   #  ####            #",
+                "#####  #        ########",
+                "       #     ####       ",
+                "       #     #          ",
+                "########     #     #####",
+                "#            #  ####   #",
+                "#         ####  #      #",
+                "#               #      #",
+                "#               #      #",
+                "#         #######      #",
+                "#                      #",
+                "########################"
+    	});
+    	maps.put(4, new String[]{
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        "
+    	});
+    	maps.put(5, new String[]{
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+    	});
     	String[] map = maps.get(seed);
         height = map.length;
         if (height > 0) 
@@ -53,9 +115,7 @@ public class Level {
     }
 
     private ArrayList<Wall> mapsParser(String[] map){
-        //TODO normal parser!!!
-        //const should be computing automatically
-    	ArrayList<Wall> field = new ArrayList<Wall>();
+        ArrayList<Wall> field = new ArrayList<Wall>();
         for (int i = 0; i < height; i++)
             for (int j = 0; j < width; j++) {
                 if (map[i].charAt(j) == '#')
