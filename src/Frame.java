@@ -12,8 +12,9 @@ public class Frame extends JFrame{
     private static Game game;
     private int WIN_WIDTH = 500;
     private int WIN_HEIGHT = 500;
-    private int SELL_SIZE = 25;
+    private int SELL_SIZE = 40;
     private final int SEED = 1;
+
     private final int X_OFFSET = 7;
     private final int Y_OFFSET = 30;
 
@@ -72,6 +73,7 @@ public class Frame extends JFrame{
                 if(game.isGameOver() == true)
                     t.cancel();
                 repaint();
+
             }
 
         }, 0 , 250);
