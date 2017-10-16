@@ -28,8 +28,8 @@ public class Game {
     public void tick() {
         moveSnake();
     }
-
-	public void turn(SnakeDirection dir) {
+	//сделать boolean tryChange...
+	public void changeSnakeDirection(SnakeDirection dir) {
     	if (!(dir == direction ||
 				(direction == SnakeDirection.Down && dir == SnakeDirection.Up) ||
 				(direction == SnakeDirection.Up && dir == SnakeDirection.Down)||
@@ -38,9 +38,10 @@ public class Game {
     		direction = dir;
     }
 
-	public ArrayList<FieldObject> getAllObjects() {
+	private ArrayList<FieldObject> getAllObjects() {
 		ArrayList<FieldObject> all = new ArrayList<FieldObject>(walls);
 		all.addAll(snake);
+		//если добавить объекты будет много if(obj==null)
 		if (apple != null)
 			all.add(apple);
 		return all;
@@ -48,7 +49,7 @@ public class Game {
 	
     private void putSnake() {
     	snake = new ArrayList<SnakePart>();
-		Point newPos = generateFreePosition();
+		Point newPos = getRandomFreePosition();
     	if (newPos.x > width - newPos.x + 1)
 			direction = SnakeDirection.Left;
 		else
@@ -68,8 +69,8 @@ public class Game {
 		}
 		return true;
 	}
-	
-    private Point generateFreePosition()
+	//TODO
+    private Point getRandomFreePosition()
     {
 		Random rnd = new Random();
     	while (true)
@@ -83,7 +84,7 @@ public class Game {
     		}
     	}
 	}
- 
+ 	//Завязан только со змеей
     private void moveSnake() {
     	Point newHeadPos = getPositionAfterMovement(
     			direction, new Point(head.column, head.row));
@@ -137,7 +138,7 @@ public class Game {
 	}
 
 	private void putApple() {
-		Point newPos = generateFreePosition();
+		Point newPos = getRandomFreePosition();
 		apple = new Apple(newPos.x, newPos.y);
 	}
     
