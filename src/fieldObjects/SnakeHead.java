@@ -2,12 +2,17 @@ package fieldObjects;
 
 public class SnakeHead extends SnakePart {
 
-    public SnakeHead(int column, int row){
-        super(column, row);
-    }
+    public SnakeHead(int x, int y) {
+		super(x, y);
+	}
 
     @Override
-    void interactWithSnake() {
-
+    public void interactWithSnake(){
+    	//TODO
+    }
+    
+    @Override
+    public void tick(){
+    	//TODO
     }
 }

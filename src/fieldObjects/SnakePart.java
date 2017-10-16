@@ -2,15 +2,17 @@ package fieldObjects;
 
 public class SnakePart extends FieldObject {
 
-	public SnakePart(int column, int row) {
-		super(column, row);
-		// TODO Auto-generated constructor stub
+	public SnakePart(int x, int y) {
+		super(x, y);
 	}
 
 	@Override
-	void interactWithSnake() {
-		// TODO Auto-generated method stub
-		
-	}
-
+    public void interactWithSnake(){
+    	//TODO
+    }
+    
+    @Override
+    public void tick(){
+    	//TODO
+    }
 }

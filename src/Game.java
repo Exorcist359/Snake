@@ -62,7 +62,7 @@ public class Game {
 		ArrayList<FieldObject> all = getAllObjects();
 		for (int i = 0; i < all.size(); i++) {
 			FieldObject obj = all.get(i);
-			if (obj.row == pos.y && obj.column == pos.x)
+			if (obj.y == pos.y && obj.x == pos.x)
 			{
 				return false;
 			}
@@ -88,7 +88,7 @@ public class Game {
 
     private void moveSnake() {
     	Point newHeadPos = getPositionAfterMovement(
-    			direction, new Point(head.column, head.row));
+    			direction, new Point(head.x, head.y));
     	moveSnakeSteply();
     	if (!isPositionFree(newHeadPos)) {
     		if (isAppleOnPosition(newHeadPos))
@@ -100,8 +100,8 @@ public class Game {
     			gameOver = true;
     		}
     	}
-    	head.column = newHeadPos.x;
-    	head.row = newHeadPos.y;
+    	head.x = newHeadPos.x;
+    	head.y = newHeadPos.y;
     }
 
     private Point getPositionAfterMovement(SnakeDirection direction, Point from)
@@ -122,19 +122,19 @@ public class Game {
     private void moveSnakeSteply() {
 		for (int i = snake.size() - 1; i > 0; i--)
     	{
-    		snake.get(i).row = snake.get(i - 1).row;
-    		snake.get(i).column = snake.get(i - 1).column;
+    		snake.get(i).y = snake.get(i - 1).y;
+    		snake.get(i).x = snake.get(i - 1).x;
     	}
 	}
 
 	private boolean isAppleOnPosition(Point newPos) {
-		return newPos.x == apple.column && newPos.y == apple.row; 
+		return newPos.x == apple.x && newPos.y == apple.y; 
 	}
 
 	private void eatApple() {
 		snake.add(new SnakePart(
-				snake.get(snake.size()-1).column, 
-				snake.get(snake.size()-1).row));
+				snake.get(snake.size()-1).x, 
+				snake.get(snake.size()-1).y));
 		putApple();
 	}
 

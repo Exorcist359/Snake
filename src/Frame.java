@@ -35,17 +35,17 @@ public class Frame extends JFrame{
             gr2d.setPaint(Color.black);
 
             game.getWalls().forEach(wall ->
-                    g.fillRect(wall.column*SELL_SIZE, wall.row*SELL_SIZE, SELL_SIZE, SELL_SIZE));
+                    g.fillRect(wall.x*SELL_SIZE, wall.y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
 
             gr2d.setPaint(Color.green);
             game.getSnake().forEach(snakePart ->
-                    g.fillRect(snakePart.column*SELL_SIZE, snakePart.row*SELL_SIZE, SELL_SIZE, SELL_SIZE));
+                    g.fillRect(snakePart.x*SELL_SIZE, snakePart.y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
 
             gr2d.setPaint(Color.YELLOW);
-            g.fillRect(game.getSnakeHead().column*SELL_SIZE, game.getSnakeHead().row*SELL_SIZE, SELL_SIZE, SELL_SIZE);
+            g.fillRect(game.getSnakeHead().x*SELL_SIZE, game.getSnakeHead().y*SELL_SIZE, SELL_SIZE, SELL_SIZE);
 
             gr2d.setPaint(Color.red);
-            g.fillRect(game.getApple().column*SELL_SIZE, game.getApple().row*SELL_SIZE, SELL_SIZE, SELL_SIZE);
+            g.fillRect(game.getApple().x*SELL_SIZE, game.getApple().y*SELL_SIZE, SELL_SIZE, SELL_SIZE);
         }
     }
 

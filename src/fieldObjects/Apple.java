@@ -2,13 +2,17 @@ package fieldObjects;
 
 public class Apple extends FieldObject{
 
-	public Apple(int column, int row) {
-		super(column, row);
-		// TODO Auto-generated constructor stub
+	public Apple(int x, int y) {
+		super(x, y);
 	}
 	
+	@Override
+    public void interactWithSnake(){
+    	//TODO
+    }
+    
     @Override
-    void interactWithSnake() {
-
+    public void tick(){
+    	//TODO
     }
 }
