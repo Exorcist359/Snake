@@ -1,3 +1,4 @@
+package logic;
 
 public enum SnakeDirection {
 	Up,

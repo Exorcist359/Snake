@@ -7,7 +7,9 @@ import javax.sound.sampled.Clip;
 import javax.swing.*;
 import javax.sound.sampled.AudioInputStream;
 
-import levels.Level;
+import logic.LevelGenerator;
+import logic.Game;
+import logic.SnakeDirection;
 
 
 public class Frame extends JFrame{
@@ -64,7 +66,7 @@ public class Frame extends JFrame{
     private boolean isDirectionChanged = false;
 
     public void execute() throws Exception {
-        game = new Game(new Level(SEED));
+        game = new Game(new LevelGenerator());
         WIN_HEIGHT = game.height * SELL_SIZE+37;
         WIN_WIDTH = game.width * SELL_SIZE+14;
 
@@ -124,7 +126,7 @@ public class Frame extends JFrame{
 
             }
 
-        }, 0 , 100);
+        }, 0 , 150);
 
     }
 
