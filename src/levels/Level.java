@@ -1,51 +1,126 @@
 package levels;
 
-import fieldObjects.FieldObject;
-import fieldObjects.Wall;
+import java.util.ArrayList;
+import java.util.HashMap;
 
-public class Level {
+import fieldObjects.*;
 
-    /*
+public class Level {    
+	private static HashMap<Integer, String[]> maps;
+	public final ArrayList<Wall> field;
+	public final int height;
+	public final int width;
+	
     public Level(int seed){
         //here will be working with seeds for maps, maybe levels will be from txt files
         //What do this class: upload seed.txt, parsing data, put to FieldObject[][], set width and height
-        String[][] map = getMap(seed);
-        FieldObject[][] field = mapsParser(map);
-    }*/
-
-    public static FieldObject[][] getLevel(int seed){
-        String[][] map = getMap(seed);
-        FieldObject[][] field = mapsParser(map);
-        return field;
+    	maps = new HashMap<Integer, String[]>();
+    	maps.put(1, new String[]{
+                "##########",
+                "#        #",
+                "#        #",
+                "#        #",
+                "#        #",
+                "#        #",
+                "#        #",
+                "##########"
+    	});
+    	maps.put(2, new String[]{
+                "####################",
+                "#                  #",
+                "#     ######       #",
+                "#  ####            #",
+                "#  #    ####       #",
+                "#  # ####          #",
+                "#### #       #######",
+                "     #    ####      ",
+                "######    #    #####",
+                "#         # ####   #",
+                "#      #### #      #",
+                "#           #      #",
+                "#      ######      #",
+                "#                  #",
+                "####################"
+    	});
+    	maps.put(3, new String[]{
+                "########################",
+                "#                      #",
+                "#      #######         #",
+                "#   ####               #",
+                "#   #                  #",
+                "#   #     ####         #",
+                "#   #  ####            #",
+                "#####  #        ########",
+                "       #     ####       ",
+                "       #     #          ",
+                "########     #     #####",
+                "#            #  ####   #",
+                "#         ####  #      #",
+                "#               #      #",
+                "#               #      #",
+                "#         #######      #",
+                "#                      #",
+                "########################"
+    	});
+    	maps.put(4, new String[]{
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        ",
+                "                        "
+    	});
+    	maps.put(5, new String[]{
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+                "                                    ",
+    	});
+    	String[] map = maps.get(seed);
+        height = map.length;
+        if (height > 0) 
+        	width = map[0].length();
+        else
+        	width = 0;
+        field = parseMaps(map);
     }
 
-    private static String[][] getMap(int seed){
-        //reading from txt file
-        return new String[][]{
-                {"##########"},
-                {"#        #"},
-                {"#        #"},
-                {"#        #"},
-                {"#        #"},
-                {"#        #"},
-                {"#        #"},
-                {"##########"}
-        };
-    }
-
-    private static FieldObject[][] mapsParser(String[][] map){
-        //TODO normal parser!!!
-        //const should be computing automatically
-        int height = 8;
-        int width = 10;
-
-        FieldObject[][] field = new FieldObject[height][width];
+    private ArrayList<Wall> parseMaps(String[] map){
+        ArrayList<Wall> field = new ArrayList<Wall>();
         for (int i = 0; i < height; i++)
             for (int j = 0; j < width; j++) {
-                if (i == 0 || j == 0 || i == height - 1 || j == width - 1)
-                    field[i][j] = new Wall(j, i);
+                if (map[i].charAt(j) == '#')
+                	field.add(new Wall(j, i));
             }
-
         return field;
     }
 

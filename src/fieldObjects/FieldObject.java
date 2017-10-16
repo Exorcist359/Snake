@@ -1,5 +1,6 @@
 package fieldObjects;
 
+<<<<<<< HEAD
 public interface FieldObject {
     void interactWithSnake();
 }
@@ -7,12 +8,17 @@ public interface FieldObject {
 abstract class FieldObject_{
     private int x;
     private int y;
+=======
+public abstract class FieldObject{
+    public int column;
+    public int row;
+>>>>>>> new_br
 
-    public FieldObject_(int x, int y){
-        this.x = x;
-        this.y = y;
+    public FieldObject(int column, int row){
+        this.column = column;
+        this.row = row;
     }
 
-    static void interactWithSnake(){}
+    abstract void interactWithSnake();
 
 }

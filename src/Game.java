@@ -1,27 +1,64 @@
 import fieldObjects.*;
 import levels.Level;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import java.awt.Point;
+import java.util.ArrayList;
+import java.util.Random;
 
-//somethings
 public class Game {
-    private FieldObject[][] field;
-    private int height;
-    private int width;
-
-    public Game(int seed){
-        field = Level.getLevel(seed);//??? Think about Level
-        height = 8;//get from Level??
-        width = 10;//get from Level too
-        startGame();
+    public final int height;
+    public final int width;
+    private ArrayList<Wall> walls;
+    private ArrayList<SnakePart> snake;
+    private SnakeDirection direction;
+	private SnakeHead head;
+	private Apple apple;
+	private boolean gameOver = false;
+    
+    public Game(Level level) throws Exception{
+        height = level.height;
+        width = level.width;
+        if (height < 2 || width < 2)
+        	throw new Exception("Field is too small");
+        walls = level.field;
+        putSnake();
+        putApple();
     }
     
-    private static void startGame(){
-        GUI gui = new GUI();
+    public void tick() {
+        moveSnake();
+    }
+	//сделать boolean tryChange...
+	public void changeSnakeDirection(SnakeDirection dir) {
+    	if (!(dir == direction ||
+				(direction == SnakeDirection.Down && dir == SnakeDirection.Up) ||
+				(direction == SnakeDirection.Up && dir == SnakeDirection.Down)||
+				(direction == SnakeDirection.Right && dir == SnakeDirection.Left)||
+				(direction == SnakeDirection.Left && dir == SnakeDirection.Right)))
+    		direction = dir;
+    }
 
-        Timer t = new Timer();
+	private ArrayList<FieldObject> getAllObjects() {
+		ArrayList<FieldObject> all = new ArrayList<FieldObject>(walls);
+		all.addAll(snake);
+		//если добавить объекты будет много if(obj==null)
+		if (apple != null)
+			all.add(apple);
+		return all;
+	}
+	
+    private void putSnake() {
+    	snake = new ArrayList<SnakePart>();
+		Point newPos = getRandomFreePosition();
+    	if (newPos.x > width - newPos.x + 1)
+			direction = SnakeDirection.Left;
+		else
+			direction = SnakeDirection.Right;
+		head = new SnakeHead(newPos.x, newPos.y);
+		snake.add(head);
+	}
 
+<<<<<<< HEAD
         t.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
@@ -29,21 +66,115 @@ public class Game {
                 tick();
                 if(gameOver() == true)
                     t.cancel();
+=======
+	private boolean isPositionFree(Point pos) {
+		ArrayList<FieldObject> all = getAllObjects();
+		for (int i = 0; i < all.size(); i++) {
+			FieldObject obj = all.get(i);
+			if (obj.row == pos.y && obj.column == pos.x)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+	//TODO
+    private Point getRandomFreePosition()
+    {
+		Random rnd = new Random();
+    	while (true)
+    	{
+    		int row = rnd.nextInt(height);
+    		int column = rnd.nextInt(width);
+    		Point point = new Point(column, row);
+    		if (isPositionFree(point))
+    		{	
+    			return point;
+    		}
+    	}
+	}
+ 	//Завязан только со змеей
+>>>>>>> new_br
 
-            }
-        }, 0 , 1*1000);
+    private void moveSnake() {
+    	Point newHeadPos = getPositionAfterMovement(
+    			direction, new Point(head.column, head.row));
+    	moveSnakeSteply();
+    	if (!isPositionFree(newHeadPos)) {
+    		if (isAppleOnPosition(newHeadPos))
+    		{
+    			eatApple();
+    		}
+    		else
+    		{
+    			gameOver = true;
+    		}
+    	}
+    	head.column = newHeadPos.x;
+    	head.row = newHeadPos.y;
     }
 
-    public void tick() {
-        //something
+    private Point getPositionAfterMovement(SnakeDirection direction, Point from)
+    {
+    	int newX = from.x;
+		int newY = from.y;
+		if (direction == SnakeDirection.Left)
+			newX = (newX - 1 + width) % width;
+		if (direction == SnakeDirection.Right)
+			newX = (newX + 1) % width;
+    	if (direction == SnakeDirection.Up)
+			newY = (newY - 1 + height) % height;
+		if (direction == SnakeDirection.Down)
+			newY = (newY + 1) % height;
+		return new Point(newX, newY);
+    }
 
+    private void moveSnakeSteply() {
+		for (int i = snake.size() - 1; i > 0; i--)
+    	{
+    		snake.get(i).row = snake.get(i - 1).row;
+    		snake.get(i).column = snake.get(i - 1).column;
+    	}
+	}
+
+	private boolean isAppleOnPosition(Point newPos) {
+		return newPos.x == apple.column && newPos.y == apple.row; 
+	}
+
+	private void eatApple() {
+		snake.add(new SnakePart(
+				snake.get(snake.size()-1).column, 
+				snake.get(snake.size()-1).row));
+		putApple();
+	}
+
+	private void putApple() {
+		Point newPos = getRandomFreePosition();
+		apple = new Apple(newPos.x, newPos.y);
+	}
+    
+	public boolean isGameOver(){
+        return gameOver;
     }
     
-    public void turn(SnakeDirection dir) {
-    	
+    public int getScore() {
+    	return snake.size() - 1;
     }
 
-    public boolean gameOver(){
-        return false;
+    public ArrayList<SnakePart> getSnake()
+    {
+    	return snake;
+    }
+
+    public Apple getApple() {
+    	return apple;
+    }
+    
+    public SnakeHead getSnakeHead() {
+    	return head;
+    }
+    
+    public ArrayList<Wall> getWalls() {
+    	return walls;
     }
 }
