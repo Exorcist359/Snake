@@ -58,15 +58,6 @@ public class Game {
 		snake.add(head);
 	}
 
-<<<<<<< HEAD
-        t.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                System.out.println("GG");//for del
-                tick();
-                if(gameOver() == true)
-                    t.cancel();
-=======
 	private boolean isPositionFree(Point pos) {
 		ArrayList<FieldObject> all = getAllObjects();
 		for (int i = 0; i < all.size(); i++) {
@@ -94,7 +85,6 @@ public class Game {
     	}
 	}
  	//Завязан только со змеей
->>>>>>> new_br
 
     private void moveSnake() {
     	Point newHeadPos = getPositionAfterMovement(

@@ -9,6 +9,7 @@ import javax.sound.sampled.AudioInputStream;
 
 import levels.Level;
 
+
 public class Frame extends JFrame{
     private Game game;
     private int WIN_WIDTH = 500;
@@ -19,10 +20,45 @@ public class Frame extends JFrame{
     private final int X_OFFSET = 7;
     private final int Y_OFFSET = 30;
 
+    class MyPanel extends JPanel{
+        public MyPanel(){
+            super();
+        }
+
+        @Override
+        public void paint(Graphics g){
+            g.clearRect(0, 0, WIN_WIDTH, WIN_HEIGHT);
+
+            super.paint(g);
+            Graphics2D gr2d = (Graphics2D) g;
+
+            gr2d.setPaint(Color.black);
+
+            game.getWalls().forEach(wall ->
+                    g.fillRect(wall.column*SELL_SIZE, wall.row*SELL_SIZE, SELL_SIZE, SELL_SIZE));
+
+            gr2d.setPaint(Color.green);
+            game.getSnake().forEach(snakePart ->
+                    g.fillRect(snakePart.column*SELL_SIZE, snakePart.row*SELL_SIZE, SELL_SIZE, SELL_SIZE));
+
+            gr2d.setPaint(Color.YELLOW);
+            g.fillRect(game.getSnakeHead().column*SELL_SIZE, game.getSnakeHead().row*SELL_SIZE, SELL_SIZE, SELL_SIZE);
+
+            gr2d.setPaint(Color.red);
+            g.fillRect(game.getApple().column*SELL_SIZE, game.getApple().row*SELL_SIZE, SELL_SIZE, SELL_SIZE);
+        }
+    }
+
+    private MyPanel panel = new MyPanel();
+
     public Frame(){
         super("Snake");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getContentPane().setBackground(Color.white);
+
+        panel.setDoubleBuffered(true);
+        this.add(panel);
+
         setVisible(true);
     }
 
@@ -60,6 +96,7 @@ public class Frame extends JFrame{
                 }
             }
         });
+
         //start music
         AudioInputStream ais = AudioSystem.getAudioInputStream(new java.io.File(
                 "A:\\Users\\Александр\\Downloads\\Linkin Park\\Extended Plays\\2010 - 8 bit Rebellion\\04-In-The-End.wav"));
@@ -72,6 +109,7 @@ public class Frame extends JFrame{
             clip.start();
         }
         //end music
+
         Timer t = new Timer();
         t.scheduleAtFixedRate(new TimerTask() {
 
@@ -84,38 +122,12 @@ public class Frame extends JFrame{
                 game.tick();
                 if(game.isGameOver() == true)
                     t.cancel();
-                repaint();
+                panel.repaint();
 
             }
 
-        }, 0 , 200);
+        }, 0 , 100);
 
     }
 
-    @Override
-    public void paint(Graphics g){
-        g.clearRect(0, 0, WIN_WIDTH, WIN_HEIGHT);
-
-        super.paint(g);
-        Graphics2D gr2d = (Graphics2D) g;
-
-        gr2d.setPaint(Color.black);
-
-        game.getWalls().forEach(wall ->
-                g.fillRect(wall.column*SELL_SIZE+X_OFFSET, wall.row*SELL_SIZE+Y_OFFSET, SELL_SIZE, SELL_SIZE));
-
-        gr2d.setPaint(Color.green);
-        game.getSnake().forEach(snakePart ->
-                g.fillRect(snakePart.column*SELL_SIZE+X_OFFSET, snakePart.row*SELL_SIZE+Y_OFFSET, SELL_SIZE, SELL_SIZE));
-
-        gr2d.setPaint(Color.YELLOW);
-        g.fillRect(game.getSnakeHead().column*SELL_SIZE+X_OFFSET, game.getSnakeHead().row*SELL_SIZE+Y_OFFSET,
-                SELL_SIZE, SELL_SIZE);
-
-        gr2d.setPaint(Color.red);
-        g.fillRect(game.getApple().column*SELL_SIZE+X_OFFSET, game.getApple().row*SELL_SIZE+Y_OFFSET,
-                SELL_SIZE, SELL_SIZE);
-
-
-    }
 }
