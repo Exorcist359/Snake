@@ -16,11 +16,9 @@ public class Frame extends JFrame{
     private int WIN_HEIGHT = 500;
 
     private int SELL_SIZE = 25;
-    private final int SEED = 3;
-    private final int X_OFFSET = 7;
-    private final int Y_OFFSET = 30;
+    private final int SEED = 4;
 
-    class MyPanel extends JPanel{
+    private class MyPanel extends JPanel{
         public MyPanel(){
             super();
         }
@@ -99,7 +97,7 @@ public class Frame extends JFrame{
 
         //start music
         AudioInputStream ais = AudioSystem.getAudioInputStream(new java.io.File(
-                "A:\\Users\\Александр\\Downloads\\Linkin Park\\Extended Plays\\2010 - 8 bit Rebellion\\04-In-The-End.wav"));
+                "src\\music\\02-Faint.wav"));
 
         Clip clip = AudioSystem.getClip();
 
