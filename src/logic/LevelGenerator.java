@@ -107,33 +107,29 @@ public class LevelGenerator {
     }
 
     private Field parseMaps(String[] map){
-		ArrayList<ArrayList<FieldObject>> all = new ArrayList<>();
-        ArrayList<FieldObject> walls = new ArrayList<>();
-        ArrayList<FieldObject> snakesHead = new ArrayList<>();
+		ArrayList<FieldObject> all = new ArrayList<>();
 
         for (int i = 0; i < height; i++)
             for (int j = 0; j < width; j++) {
         		char currentSymb = map[i].charAt(j);
         		switch (currentSymb){
 					case '#':
-						walls.add(new Wall(j, i));
+						all.add(new Wall(j, i));
 						break;
 					case '<':
-						snakesHead.add(new SnakeHead(j, i, SnakeDirection.Left));
+						all.add(new SnakeHead(j, i, SnakeDirection.Left));
 						break;
 					case '>':
-						snakesHead.add(new SnakeHead(j, i, SnakeDirection.Right));
+						all.add(new SnakeHead(j, i, SnakeDirection.Right));
 						break;
 					case 'A':
-						snakesHead.add(new SnakeHead(j, i, SnakeDirection.Up));
+						all.add(new SnakeHead(j, i, SnakeDirection.Up));
 						break;
 					case 'V':
-						snakesHead.add(new SnakeHead(j, i, SnakeDirection.Down));
+						all.add(new SnakeHead(j, i, SnakeDirection.Down));
 						break;
 				}
             }
-		all.add(walls);
-        all.add(snakesHead);
 
         return new Field(all);
     }

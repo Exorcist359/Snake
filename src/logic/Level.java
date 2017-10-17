@@ -1,6 +1,5 @@
 package logic;
 
-import logic.Field;
 
 public class Level {
     public final Field field;

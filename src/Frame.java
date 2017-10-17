@@ -18,7 +18,6 @@ public class Frame extends JFrame{
     private int WIN_HEIGHT = 500;
 
     private int SELL_SIZE = 25;
-    private final int SEED = 4;
 
     private class MyPanel extends JPanel{
         public MyPanel(){
