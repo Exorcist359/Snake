@@ -1,7 +1,6 @@
 package logic;
 
 import fieldObjects.*;
-import levels.LevelGenerator;
 
 import java.awt.Point;
 import java.util.ArrayList;
