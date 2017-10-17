@@ -137,7 +137,7 @@ public class Game {
 	private void eatApple() {
 		snake.add(new SnakePart(
 				snake.get(snake.size()-1).x, 
-				snake.get(snake.size()-1).y));
+				snake.get(snake.size()-1).y,snake.get(snake.size()-1)));
 		putApple();
 	}
 
