@@ -87,7 +87,7 @@ public class Game {
     		}
     	}
 	}
- 	//Завязан только со змеей
+ 	//Завязан только со змеей comment
 
     private void moveSnake() {
     	Point newHeadPos = getPositionAfterMovement(
