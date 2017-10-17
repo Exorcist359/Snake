@@ -15,13 +15,15 @@ public class Game {
 	private SnakeHead head;
 	private Apple apple;
 	private boolean gameOver = false;
+	private int SEED = 4;
     
-    public Game(LevelGenerator level) throws Exception{
+    public Game(LevelGenerator generator) throws Exception{
+    	Level level = generator.generate(SEED);
         height = level.height;
         width = level.width;
         if (height < 2 || width < 2)
         	throw new Exception("Field is too small");
-        walls = level.field;
+        walls = level.field.getWalls();
         putSnake();
         putApple();
     }
@@ -55,7 +57,7 @@ public class Game {
 			direction = SnakeDirection.Left;
 		else
 			direction = SnakeDirection.Right;
-		head = new SnakeHead(newPos.x, newPos.y);
+		head = new SnakeHead(newPos.x, newPos.y, SnakeDirection.Down);
 		snake.add(head);
 	}
 
