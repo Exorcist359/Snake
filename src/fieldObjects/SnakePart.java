@@ -2,7 +2,10 @@ package fieldObjects;
 
 public class SnakePart extends FieldObject {
 
-	public SnakePart(int x, int y) {
+	public SnakePart previous;
+	public SnakePart next;
+	
+	public SnakePart(int x, int y, SnakePart previous) {
 		super(x, y);
 	}
 
@@ -13,6 +16,6 @@ public class SnakePart extends FieldObject {
     
     @Override
     public void tick(){
-    	//TODO
+    	this.position = previous.position;
     }
 }
