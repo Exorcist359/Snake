@@ -1,5 +1,7 @@
+package logic;
+
 import fieldObjects.*;
-import levels.Level;
+import levels.LevelGenerator;
 
 import java.awt.Point;
 import java.util.ArrayList;
@@ -15,7 +17,7 @@ public class Game {
 	private Apple apple;
 	private boolean gameOver = false;
     
-    public Game(Level level) throws Exception{
+    public Game(LevelGenerator level) throws Exception{
         height = level.height;
         width = level.width;
         if (height < 2 || width < 2)

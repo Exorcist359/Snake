@@ -1,3 +1,4 @@
+package logic;
 
 public class Point {
 	public int X;
