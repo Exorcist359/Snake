@@ -96,7 +96,7 @@ public class Frame extends JFrame{
             }
         });
 
-        //start music
+        /*//start music
         AudioInputStream ais = AudioSystem.getAudioInputStream(new java.io.File(
                 "src\\music\\02-Faint.wav"));
 
@@ -108,7 +108,7 @@ public class Frame extends JFrame{
             clip.start();
         }
         //end music
-
+*/
         Timer t = new Timer();
         t.scheduleAtFixedRate(new TimerTask() {
 

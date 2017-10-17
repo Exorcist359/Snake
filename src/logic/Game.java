@@ -107,7 +107,7 @@ public class Game {
     	head.y = newHeadPos.y;
     }
 
-    private Point getPositionAfterMovement(SnakeDirection direction, Point from)
+    private static Point getPositionAfterMovement(SnakeDirection direction, Point from)
     {
     	int newX = from.x;
 		int newY = from.y;

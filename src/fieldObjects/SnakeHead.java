@@ -1,6 +1,7 @@
 package fieldObjects;
 
 import logic.SnakeDirection;
+import logic.Game; // change to static class
 
 public class SnakeHead extends SnakePart {
 
@@ -18,6 +19,6 @@ public class SnakeHead extends SnakePart {
     
     @Override
     public void tick(){
-    	//TODO
+    	position = Game.getPositionAfterMovement(direction, position);
     }
 }
