@@ -9,6 +9,10 @@ public class SnakePart extends FieldObject {
 		super(x, y);
 	}
 
+	public SnakePart(int x, int y) {
+		super(x, y);
+	}
+	
 	@Override
     public void interactWithSnake(){
     	//TODO

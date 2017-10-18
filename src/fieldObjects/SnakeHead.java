@@ -8,7 +8,7 @@ public class SnakeHead extends SnakePart {
     public SnakeDirection direction;
 
     public SnakeHead(int x, int y, SnakeDirection direction) {
-		super(x, y);
+    	super(x, y);
 		this.direction = direction;
 	}
 
