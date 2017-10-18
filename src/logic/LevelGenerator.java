@@ -106,8 +106,14 @@ public class LevelGenerator {
     	});
     }
 
+    private void createSnake(SnakeHead snakeHead, ArrayList<FieldObject> all, ArrayList<Snake> snakes){
+    	all.add(snakeHead);
+    	snakes.add(new Snake(snakeHead));
+	}
+
     private Field parseMaps(String[] map){
 		ArrayList<FieldObject> all = new ArrayList<>();
+		ArrayList<Snake> snakes = new ArrayList<>();
 
         for (int i = 0; i < height; i++)
             for (int j = 0; j < width; j++) {
@@ -117,21 +123,21 @@ public class LevelGenerator {
 						all.add(new Wall(j, i));
 						break;
 					case '<':
-						all.add(new SnakeHead(j, i, SnakeDirection.Left));
+						createSnake(new SnakeHead(j, i, SnakeDirection.Left, height, width), all, snakes);
 						break;
 					case '>':
-						all.add(new SnakeHead(j, i, SnakeDirection.Right));
+						createSnake(new SnakeHead(j, i, SnakeDirection.Right, height, width), all, snakes);
 						break;
 					case 'A':
-						all.add(new SnakeHead(j, i, SnakeDirection.Up));
+						createSnake(new SnakeHead(j, i, SnakeDirection.Up, height, width), all, snakes);
 						break;
 					case 'V':
-						all.add(new SnakeHead(j, i, SnakeDirection.Down));
+						createSnake(new SnakeHead(j, i, SnakeDirection.Down, height, width), all, snakes);
 						break;
 				}
             }
 
-        return new Field(all);
+        return new Field(all, snakes);
     }
 
     public Level generate(int seed){

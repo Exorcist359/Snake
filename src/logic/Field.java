@@ -5,8 +5,10 @@ import fieldObjects.*;
 
 public class Field {
 	private ArrayList<FieldObject> allObjects;
-	
-	public Field(ArrayList<FieldObject> allObjects) {
+	public ArrayList<Snake> snakes;
+
+	public Field(ArrayList<FieldObject> allObjects, ArrayList<Snake> snakes) {
+		this.snakes = snakes;
 		this.allObjects = allObjects;
 	}
 	

@@ -10,7 +10,7 @@ public class SnakeHead extends SnakePart {
     private int height;
     private boolean isDead = false;
 
-    public SnakeHead(int x, int y, SnakeDirection direction, int width, int height) {
+    public SnakeHead(int x, int y, SnakeDirection direction, int height, int width) {
 		super(x, y);
 		this.direction = direction;
 		this.width = width;
