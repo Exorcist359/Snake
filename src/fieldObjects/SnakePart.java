@@ -13,11 +13,12 @@ public class SnakePart extends FieldObject {
 		super(x, y);
 	}
 	
-	@Override
-    public void interactWithSnake(){
-    	//TODO
-    }
-    
+	 @Override
+	 public boolean isWalkable()
+	 {
+		 return false;
+	 }
+	    
     @Override
     public void tick(){
     	this.position = previous.position;

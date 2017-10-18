@@ -8,7 +8,7 @@ public class SnakeHead extends SnakePart {
     public SnakeDirection direction;
     private int width;
     private int height;
-
+    private boolean isDead = false;
 
     public SnakeHead(int x, int y, SnakeDirection direction, int height, int width) {
 		super(x, y);
@@ -16,15 +16,26 @@ public class SnakeHead extends SnakePart {
 		this.width = width;
 		this.height = height;
 	}
-
+    
     @Override
-    public void interactWithSnake(){
-    	//TODO
+    public boolean isWalkable()
+    {
+    	return false;
     }
     
+    public boolean isDead()
+    {
+    	return isDead;
+    }
+
     @Override
     public void tick(){
     	position = getPositionAfterMovement(direction, position);
+    }
+    
+    public void die()
+    {
+    	isDead = true;
     }
 
     private Point getPositionAfterMovement(SnakeDirection direction, Point from)
