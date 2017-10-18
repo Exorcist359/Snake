@@ -7,12 +7,12 @@ public class Wall extends FieldObject {
 	}
 
     @Override
-    public void interactWithSnake(){
-    	//TODO
+    public boolean isWalkable()
+    {
+    	return false;
     }
-    
+
     @Override
     public void tick(){
-    	//TODO
     }
 }
