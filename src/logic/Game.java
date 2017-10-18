@@ -31,15 +31,6 @@ public class Game {
     public void tick() {
         moveSnake();
     }
-	//сделать boolean tryChange...
-	public void changeSnakeDirection(SnakeDirection dir) {
-    	if (!(dir == direction ||
-				(direction == SnakeDirection.Down && dir == SnakeDirection.Up) ||
-				(direction == SnakeDirection.Up && dir == SnakeDirection.Down)||
-				(direction == SnakeDirection.Right && dir == SnakeDirection.Left)||
-				(direction == SnakeDirection.Left && dir == SnakeDirection.Right)))
-    		direction = dir;
-    }
 
 	private ArrayList<FieldObject> getAllObjects() {
 		ArrayList<FieldObject> all = new ArrayList<FieldObject>(walls);
@@ -105,21 +96,6 @@ public class Game {
     	}
     	head.x = newHeadPos.x;
     	head.y = newHeadPos.y;
-    }
-
-    private static Point getPositionAfterMovement(SnakeDirection direction, Point from)
-    {
-    	int newX = from.x;
-		int newY = from.y;
-		if (direction == SnakeDirection.Left)
-			newX = (newX - 1 + width) % width;
-		if (direction == SnakeDirection.Right)
-			newX = (newX + 1) % width;
-    	if (direction == SnakeDirection.Up)
-			newY = (newY - 1 + height) % height;
-		if (direction == SnakeDirection.Down)
-			newY = (newY + 1) % height;
-		return new Point(newX, newY);
     }
 
     private void moveSnakeSteply() {
