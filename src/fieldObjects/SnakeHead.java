@@ -9,6 +9,7 @@ public class SnakeHead extends SnakePart {
     private int width;
     private int height;
 
+
     public SnakeHead(int x, int y, SnakeDirection direction, int width, int height) {
 		super(x, y);
 		this.direction = direction;
