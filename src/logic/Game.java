@@ -24,8 +24,6 @@ public class Game {
         if (height < 2 || width < 2)
         	throw new Exception("Field is too small");
         walls = level.field.getWalls();
-        putSnake();
-        putApple();
     }
     
     public void tick() {
@@ -39,17 +37,6 @@ public class Game {
 		if (apple != null)
 			all.add(apple);
 		return all;
-	}
-	
-    private void putSnake() {
-    	snake = new ArrayList<SnakePart>();
-		Point newPos = getRandomFreePosition();
-    	if (newPos.x > width - newPos.x + 1)
-			direction = SnakeDirection.Left;
-		else
-			direction = SnakeDirection.Right;
-		head = new SnakeHead(newPos.x, newPos.y, SnakeDirection.Down);
-		snake.add(head);
 	}
 
 	private boolean isPositionFree(Point pos) {
@@ -146,4 +133,5 @@ public class Game {
     public ArrayList<Wall> getWalls() {
     	return walls;
     }
+
 }
