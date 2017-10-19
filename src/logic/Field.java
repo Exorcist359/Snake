@@ -11,10 +11,15 @@ public class Field {
 		this.snakes = snakes;
 		this.allObjects = allObjects;
 	}
-	
+
 	public void tick() {
 		allObjects.forEach(fieldObject -> fieldObject.tick());
-	}	
+		interactAll();
+		{
+			fO.interactWithSnake(snakeHead, field)
+		}
+		update();
+	}
 		
 	public ArrayList<Wall> getWalls()
 	{
@@ -52,4 +57,15 @@ public class Field {
 		return snakeHeads;
 	}
 
+	public void killSnake(SnakeHead snakeHead) {
+		//TODO
+	}
+
+	public void generateApple() {
+		//TODO
+	}
+
+	public void increaseSnake(SnakeHead snakeHead) {
+		//TODO
+	}
 }

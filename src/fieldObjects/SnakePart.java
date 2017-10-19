@@ -18,7 +18,12 @@ public class SnakePart extends FieldObject {
 	 {
 		 return false;
 	 }
-	    
+
+	@Override
+	public boolean isActive() {
+		return true;
+	}
+
     @Override
     public void tick(){
     	this.position = previous.position;

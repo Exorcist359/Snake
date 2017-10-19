@@ -22,7 +22,11 @@ public class SnakeHead extends SnakePart {
     {
     	return false;
     }
-    
+
+    @Override
+    public boolean isActive() {
+        return true;
+    }
     public boolean isDead()
     {
     	return isDead;

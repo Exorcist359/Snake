@@ -12,7 +12,7 @@ public class LevelGenerator {
 	
     public LevelGenerator(){
         //here will be working with seeds for maps, maybe levels will be from txt files
-        //What do this class: upload seed.txt, parsing data, put to FieldObject[][], set width and height
+        //What do this class: upload seed.txt, parsing data, put to FieldObject[][], set fieldWidth and fieldHeight
     	maps = new HashMap<Integer, String[]>();
     	maps.put(1, new String[]{
                 "##########",
@@ -148,7 +148,6 @@ public class LevelGenerator {
 			width = map[0].length();
 		else
 			width = 0;
-
 		return new Level(parseMaps(map), height, width);
 	}
 }

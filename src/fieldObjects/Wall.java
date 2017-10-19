@@ -13,6 +13,10 @@ public class Wall extends FieldObject {
     }
 
     @Override
+    public boolean isActive() {
+        return true;
+    }
+    @Override
     public void tick(){
     }
 }

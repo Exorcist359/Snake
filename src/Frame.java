@@ -2,10 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Timer;
 import java.util.TimerTask;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 import javax.swing.*;
-import javax.sound.sampled.AudioInputStream;
 
 import logic.LevelGenerator;
 import logic.Game;
@@ -66,8 +63,8 @@ public class Frame extends JFrame{
 
     public void execute() throws Exception {
         game = new Game(new LevelGenerator());
-        WIN_HEIGHT = game.height * SELL_SIZE+37;
-        WIN_WIDTH = game.width * SELL_SIZE+14;
+        WIN_HEIGHT = game.fieldHeight * SELL_SIZE+37;
+        WIN_WIDTH = game.fieldWidth * SELL_SIZE+14;
 
         this.setBounds(100, 100, WIN_WIDTH, WIN_HEIGHT);
 

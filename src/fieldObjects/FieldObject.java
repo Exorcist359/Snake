@@ -1,4 +1,5 @@
 package fieldObjects;
+import logic.Field;
 
 public abstract class FieldObject{
     public int x;
@@ -6,6 +7,7 @@ public abstract class FieldObject{
     public Point position;
 
     public abstract boolean isWalkable();
+    public abstract boolean isActive();
     
     public FieldObject(int x, int y){
         this.x = x;
@@ -13,11 +15,11 @@ public abstract class FieldObject{
         position = new Point(x,y);
     }
 
-    public void interactWithSnake(SnakeHead snakeHead)
+    public void interactWithSnake(SnakeHead snakeHead, Field field)
     {
     	if (!isWalkable())
     	{
-    		snakeHead.die();
+    		field.killSnake(snakeHead);
     	}
     }
     

@@ -7,27 +7,19 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Game {
-    public final int height;
-    public final int width;
-    private ArrayList<Wall> walls;
-    private ArrayList<SnakePart> snake;
-    private SnakeDirection direction;
-	private SnakeHead head;
-	private Apple apple;
-	private boolean gameOver = false;
-	private int SEED = 4;
+    public final int fieldHeight;
+    public final int fieldWidth;
     
     public Game(LevelGenerator generator) throws Exception{
     	Level level = generator.generate(SEED);
-        height = level.height;
-        width = level.width;
-        if (height < 2 || width < 2)
+        fieldHeight = level.height;
+        fieldWidth = level.width;
+        if (fieldHeight < 2 || fieldWidth < 2)
         	throw new Exception("Field is too small");
-        walls = level.field.getWalls();
     }
     
     public void tick() {
-        moveSnake();
+
     }
 
 	private ArrayList<FieldObject> getAllObjects() {
@@ -56,8 +48,8 @@ public class Game {
 		Random rnd = new Random();
     	while (true)
     	{
-    		int row = rnd.nextInt(height);
-    		int column = rnd.nextInt(width);
+    		int row = rnd.nextInt(fieldHeight);
+    		int column = rnd.nextInt(fieldWidth);
     		Point point = new Point(column, row);
     		if (isPositionFree(point))
     		{	
