@@ -136,8 +136,9 @@ public class LevelGenerator {
 						break;
 				}
             }
-
-        return new Model(all, snakes);
+        Field field = new Field(height, width);
+        field.allObjects = all;
+        return new Model(field, snakes);
     }
 
     public Level generate(int seed){

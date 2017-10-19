@@ -2,7 +2,6 @@ package fieldObjects;
 
 import logic.SnakeDirection;
 import logic.Game; // change to static class
-import logic.Point;
 
 public class SnakeHead extends SnakePart {
 
@@ -27,10 +26,11 @@ public class SnakeHead extends SnakePart {
     public boolean isActive() {
         return true;
     }
+    
+
     @Override
     public void tick(){
-        if (!isDead())
-    	    position = getPositionAfterMovement(direction, position);
+    	position = getPositionAfterMovement(direction, position);
     }
 
     private Point getPositionAfterMovement(SnakeDirection direction, Point from)
