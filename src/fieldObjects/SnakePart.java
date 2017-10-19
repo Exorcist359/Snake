@@ -1,5 +1,7 @@
 package fieldObjects;
 
+import logic.Point;
+
 public class SnakePart extends FieldObject {
 
 	public SnakePart previous;
@@ -19,7 +21,7 @@ public class SnakePart extends FieldObject {
 		super(position);
 		this.previous = previous;
 	}
-	
+
     public boolean isDead()
     {
     	return isDead;
@@ -43,6 +45,7 @@ public class SnakePart extends FieldObject {
 
     @Override
     public void tick(){
-    	this.position = previous.position;
+    	if (!isDead)
+			this.position = previous.position;
     }
 }

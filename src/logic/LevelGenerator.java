@@ -111,7 +111,7 @@ public class LevelGenerator {
     	snakes.add(new Snake(snakeHead));
 	}
 
-    private Field parseMaps(String[] map){
+    private Model parseMaps(String[] map){
 		ArrayList<FieldObject> all = new ArrayList<>();
 		ArrayList<Snake> snakes = new ArrayList<>();
 
@@ -137,7 +137,7 @@ public class LevelGenerator {
 				}
             }
 
-        return new Field(all, snakes);
+        return new Model(all, snakes);
     }
 
     public Level generate(int seed){

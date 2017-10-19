@@ -15,7 +15,7 @@ public class Game {
         fieldHeight = level.height;
         fieldWidth = level.width;
         if (fieldHeight < 2 || fieldWidth < 2)
-        	throw new Exception("Field is too small");
+        	throw new Exception("Model is too small");
     }
     
     public void tick() {

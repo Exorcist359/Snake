@@ -1,12 +1,23 @@
 package logic;
 
 public class Point {
-	public int X;
-	public int Y;
+	public int x;
+	public int y;
 	
 	public Point(int x, int y)
 	{
-		X = x;
-		Y = y;
+		this.x = x;
+		this.y = y;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Point)
+		{
+			Point anotherPoint = (Point)obj;
+			if (x == anotherPoint.x && y == anotherPoint.y)
+				return true;
+		}
+		return false;
 	}
 }

@@ -2,13 +2,13 @@ package fieldObjects;
 
 import logic.SnakeDirection;
 import logic.Game; // change to static class
+import logic.Point;
 
 public class SnakeHead extends SnakePart {
 
     public SnakeDirection direction;
     private int width;
     private int height;
-    private boolean isDead = false;
 
     public SnakeHead(int x, int y, SnakeDirection direction, int height, int width) {
 		super(x, y);
@@ -27,19 +27,10 @@ public class SnakeHead extends SnakePart {
     public boolean isActive() {
         return true;
     }
-    public boolean isDead()
-    {
-    	return isDead;
-    }
-
     @Override
     public void tick(){
-    	position = getPositionAfterMovement(direction, position);
-    }
-    
-    public void die()
-    {
-    	isDead = true;
+        if (!isDead())
+    	    position = getPositionAfterMovement(direction, position);
     }
 
     private Point getPositionAfterMovement(SnakeDirection direction, Point from)

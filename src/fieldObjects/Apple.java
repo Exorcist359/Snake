@@ -1,5 +1,6 @@
 package fieldObjects;
-import logic.Field;
+import logic.Model;
+import logic.Point;
 
 public class Apple extends FieldObject{
 
@@ -13,9 +14,9 @@ public class Apple extends FieldObject{
 		super(position);
 	}
 	
-    public void interactWithSnake(SnakeHead snakeHead, Field field){
-        field.generateApple();
-        field.increaseSnake(snakeHead);
+    public void interactWithSnake(SnakeHead snakeHead, Model model){
+        model.generateApple();
+        model.increaseSnake(snakeHead);
         isActive = false;
     }
 	

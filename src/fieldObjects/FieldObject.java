@@ -1,5 +1,6 @@
 package fieldObjects;
-import logic.Field;
+import logic.Model;
+import logic.Point;
 
 public abstract class FieldObject{
     public int x;
@@ -21,11 +22,11 @@ public abstract class FieldObject{
         this.position = position;
     }
 
-    public void interactWithSnake(SnakeHead snakeHead, Field field)
+    public void interactWithSnake(SnakeHead snakeHead, Model model)
     {
     	if (!isWalkable())
     	{
-    		field.killSnake(snakeHead);
+    		model.killSnake(snakeHead);
     	}
     }
     
