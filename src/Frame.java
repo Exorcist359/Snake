@@ -4,13 +4,13 @@ import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.*;
 
-import logic.LevelGenerator;
-import logic.Game;
+import logic.FieldGenerator;
+import logic.GameController;
 import logic.SnakeDirection;
 
 
 public class Frame extends JFrame{
-    private Game game;
+    private GameController game;
     private int WIN_WIDTH = 500;
     private int WIN_HEIGHT = 500;
 
@@ -62,7 +62,7 @@ public class Frame extends JFrame{
     private boolean isDirectionChanged = false;
 
     public void execute() throws Exception {
-        game = new Game(new LevelGenerator());
+        game = new GameController(new FieldGenerator());
         WIN_HEIGHT = game.fieldHeight * SELL_SIZE+37;
         WIN_WIDTH = game.fieldWidth * SELL_SIZE+14;
 

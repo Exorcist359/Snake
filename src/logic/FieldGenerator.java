@@ -5,12 +5,12 @@ import java.util.HashMap;
 import fieldObjects.*;
 
 
-public class LevelGenerator {
+public class FieldGenerator {
 	private static HashMap<Integer, String[]> maps;
 	private int height;
 	private int width;
 	
-    public LevelGenerator(){
+    public FieldGenerator(){
         //here will be working with seeds for maps, maybe levels will be from txt files
         //What do this class: upload seed.txt, parsing data, put to FieldObject[][], set fieldWidth and fieldHeight
     	maps = new HashMap<Integer, String[]>();
@@ -106,15 +106,9 @@ public class LevelGenerator {
     	});
     }
 
-    private void createSnake(SnakeHead snakeHead, ArrayList<FieldObject> all, ArrayList<Snake> snakes){
-    	all.add(snakeHead);
-    	snakes.add(new Snake(snakeHead));
-	}
-
-    private Model parseMaps(String[] map){
+    private Field parseMaps(String[] map){
 		ArrayList<FieldObject> all = new ArrayList<>();
-		ArrayList<Snake> snakes = new ArrayList<>();
-
+        Field field = new Field(height, width);
         for (int i = 0; i < height; i++)
             for (int j = 0; j < width; j++) {
         		char currentSymb = map[i].charAt(j);
@@ -123,25 +117,24 @@ public class LevelGenerator {
 						all.add(new Wall(j, i));
 						break;
 					case '<':
-						createSnake(new SnakeHead(j, i, SnakeDirection.Left, height, width), all, snakes);
+						all.add(new SnakeHead(j, i, SnakeDirection.Left, field));
 						break;
 					case '>':
-						createSnake(new SnakeHead(j, i, SnakeDirection.Right, height, width), all, snakes);
+						all.add(new SnakeHead(j, i, SnakeDirection.Right, field));
 						break;
 					case 'A':
-						createSnake(new SnakeHead(j, i, SnakeDirection.Up, height, width), all, snakes);
+						all.add(new SnakeHead(j, i, SnakeDirection.Up, field));
 						break;
 					case 'V':
-						createSnake(new SnakeHead(j, i, SnakeDirection.Down, height, width), all, snakes);
+						all.add(new SnakeHead(j, i, SnakeDirection.Down, field));
 						break;
 				}
             }
-        Field field = new Field(height, width);
         field.allObjects = all;
-        return new Model(field, snakes);
+        return field;
     }
 
-    public Level generate(int seed){
+    public Field generate(int seed){
 		String[] map = maps.get(seed);
 
 		height = map.length;
@@ -149,6 +142,6 @@ public class LevelGenerator {
 			width = map[0].length();
 		else
 			width = 0;
-		return new Level(parseMaps(map), height, width);
+		return parseMaps(map);
 	}
 }
