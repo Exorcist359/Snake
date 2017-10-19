@@ -9,6 +9,10 @@ public class Apple extends FieldObject{
 		super(x, y);
 	}
 
+	public Apple(Point position) {
+		super(position);
+	}
+	
     public void interactWithSnake(SnakeHead snakeHead, Field field){
         field.generateApple();
         field.increaseSnake(snakeHead);

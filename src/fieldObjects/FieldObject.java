@@ -14,6 +14,12 @@ public abstract class FieldObject{
         this.y = y;
         position = new Point(x,y);
     }
+    
+    public FieldObject(Point position){
+        this.x = position.x;
+        this.y = position.y;
+        this.position = position;
+    }
 
     public void interactWithSnake(SnakeHead snakeHead, Field field)
     {
