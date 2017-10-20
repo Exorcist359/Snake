@@ -4,13 +4,12 @@ import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.*;
 
-import logic.FieldGenerator;
 import logic.GameController;
 import logic.SnakeDirection;
 
 
 public class Frame extends JFrame{
-    private GameController game;
+    private GameController gameController;
     private int WIN_WIDTH = 500;
     private int WIN_HEIGHT = 500;
 
@@ -28,20 +27,22 @@ public class Frame extends JFrame{
             super.paint(g);
             Graphics2D gr2d = (Graphics2D) g;
 
-            gr2d.setPaint(Color.black);
+            gr2d.setPaint(Color.BLACK);
+            gameController.getWalls().forEach(wall ->
+                    g.fillRect(wall.position.x*SELL_SIZE, wall.position.y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
 
-            game.getWalls().forEach(wall ->
-                    g.fillRect(wall.x*SELL_SIZE, wall.y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
-
-            gr2d.setPaint(Color.green);
-            game.getSnake().forEach(snakePart ->
-                    g.fillRect(snakePart.x*SELL_SIZE, snakePart.y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
+            gr2d.setPaint(Color.GREEN);
+            gameController.getSnakeParts().forEach(snakePart ->
+                    g.fillRect(snakePart.position.x*SELL_SIZE, snakePart.position.y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
 
             gr2d.setPaint(Color.YELLOW);
-            g.fillRect(game.getSnakeHead().x*SELL_SIZE, game.getSnakeHead().y*SELL_SIZE, SELL_SIZE, SELL_SIZE);
+            gameController.getSnakeHeads().forEach(snakePart ->
+                    g.fillRect(snakePart.position.x*SELL_SIZE, snakePart.position.y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
 
-            gr2d.setPaint(Color.red);
-            g.fillRect(game.getApple().x*SELL_SIZE, game.getApple().y*SELL_SIZE, SELL_SIZE, SELL_SIZE);
+            gr2d.setPaint(Color.RED);
+            gameController.getApples().forEach(snakePart ->
+                    g.fillRect(snakePart.position.x*SELL_SIZE, snakePart.position.y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
+
         }
     }
 
@@ -62,9 +63,9 @@ public class Frame extends JFrame{
     private boolean isDirectionChanged = false;
 
     public void execute() throws Exception {
-        game = new GameController(new FieldGenerator());
-        WIN_HEIGHT = game.fieldHeight * SELL_SIZE+37;
-        WIN_WIDTH = game.fieldWidth * SELL_SIZE+14;
+        gameController = new GameController();
+        WIN_HEIGHT = gameController.fieldHeight * SELL_SIZE+37;
+        WIN_WIDTH = gameController.fieldWidth * SELL_SIZE+14;
 
         this.setBounds(100, 100, WIN_WIDTH, WIN_HEIGHT);
 
@@ -105,18 +106,18 @@ public class Frame extends JFrame{
             clip.start();
         }
         //end music
-*/
+        */
         Timer t = new Timer();
         t.scheduleAtFixedRate(new TimerTask() {
 
             @Override
             public void run() {
                 if(isDirectionChanged){
-                    game.changeSnakeDirection(snakeDir);
+                    gameController.snakes.get(0).tryChangeSnakeDirection(snakeDir);
                     isDirectionChanged = false;
                 };
-                game.tick();
-                if(game.isGameOver() == true)
+                gameController.tick();
+                if(gameController.isGameOver() == true)
                     t.cancel();
                 panel.repaint();
 

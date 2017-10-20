@@ -21,12 +21,12 @@ public class FieldGenerator {
                 "#        #",
                 "#        #",
                 "#        #",
-                "#        #",
+                "#   A    #",
                 "##########"
     	});
     	maps.put(2, new String[]{
                 "####################",
-                "#                  #",
+                "#   >              #",
                 "#     ######       #",
                 "#  ####            #",
                 "#  #    ####       #",
@@ -58,7 +58,7 @@ public class FieldGenerator {
                 "#               #      #",
                 "#               #      #",
                 "#         #######      #",
-                "#                      #",
+                "#                   <  #",
                 "########################"
     	});
     	maps.put(4, new String[]{
@@ -69,7 +69,7 @@ public class FieldGenerator {
                 "                        ",
                 "                        ",
                 "                        ",
-                "                        ",
+                "              >         ",
                 "                        ",
                 "                        ",
                 "                        ",
@@ -89,7 +89,7 @@ public class FieldGenerator {
                 "                                    ",
                 "                                    ",
                 "                                    ",
-                "                                    ",
+                "               A                    ",
                 "                                    ",
                 "                                    ",
                 "                                    ",

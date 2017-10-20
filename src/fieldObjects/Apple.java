@@ -7,7 +7,7 @@ public class Apple extends FieldObject{
     private boolean isActive = true;
 
 	public Apple(int x, int y) {
-		super(x, y);
+		super(new Point(x, y));
 	}
 
 	public Apple(Point position) {

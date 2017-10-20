@@ -28,6 +28,7 @@ public class SnakeHead extends SnakePart {
 
     @Override
     public void tick(){
+        previousPosition = position;
     	position = Logic.getPositionAfterMovement(direction, position, field);
     }
 

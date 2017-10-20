@@ -8,30 +8,47 @@ import fieldObjects.*;
 public class Model {
 	public Field field;
 	public ArrayList<Snake> snakes;
-	public ArrayList<SnakeHead> snakeHeads;
+	private ArrayList<FieldObject> addedNewObj;
 
 	public Model(Field field) {
 		this.field = field;
 		snakes = new ArrayList<Snake>();
-		ArrayList<FieldObject> all;
 		field.allObjects.forEach(obj -> 
 		{
 			if (obj instanceof SnakeHead)
 				snakes.add(new Snake((SnakeHead)obj));
 		});
+		addedNewObj = new ArrayList<>();
+		generateApple();
+		field.allObjects.addAll(addedNewObj);
+		addedNewObj.clear();
 	}
 
 	public void tick() {
 		field.allObjects.forEach(fieldObject -> fieldObject.tick());
-		
-		snakeHeads.forEach(head -> {
+		/*
+		snakes.forEach(head -> {
 			field.allObjects.forEach(obj -> {
-				if (head != obj)
+				if (head != obj)//downcast obj to HeadSnake
 					obj.interactWithSnake(head, this);
 			});
 		});
-		
+		*/
+		//WTF??
+		field.allObjects.forEach(fieldObject -> {
+			if (fieldObject instanceof SnakeHead){
+				SnakeHead head = (SnakeHead)fieldObject;
+				field.allObjects.forEach(obj -> {
+					//may be problem with two snakes
+					if (head != obj && head.position.equals(obj.position)){
+						obj.interactWithSnake(head, this);
+					}
+				});
+			}
+		});
 		field.allObjects.removeIf(obj -> !obj.isActive());
+		field.allObjects.addAll(addedNewObj);
+		addedNewObj.clear();
 	}
 
 	public void killSnake(SnakeHead snakeHead) {
@@ -40,14 +57,15 @@ public class Model {
 
 	public void generateApple() {
 		Point position = field.getRandomFreePosition();
-		field.allObjects.add(new Apple(position));
+		//May be exeption field.allObject.add
+		addedNewObj.add(new Apple(position));
 	}
 	
 	public void increaseSnake(SnakeHead snakeHead) {
 		SnakePart tail = getLastSnakePart(snakeHead);
 		SnakePart newPart = new SnakePart(tail.position, tail);
 		tail.next = newPart;
-		field.allObjects.add(newPart);
+		addedNewObj.add(newPart);
 	}
 	
 	private SnakePart getLastSnakePart(SnakeHead snakeHead) {
@@ -64,9 +82,9 @@ public class Model {
 		SnakePart current = snakeHead;
 		while(true)
 		{
+			current.die();
 			if (current.next == null)
 				break;
-			current.die();
 			current = current.next;
 		}
 	}

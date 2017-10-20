@@ -8,6 +8,10 @@ public class Snake {
         this.snakeHead = snakeHead;
     }
 
+    public boolean isDead(){
+        return snakeHead.isDead();
+    }
+
     public int getScore() {
     	//TODO
     	return 1;

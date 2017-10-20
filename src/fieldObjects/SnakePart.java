@@ -7,14 +7,10 @@ public class SnakePart extends FieldObject {
 	public SnakePart previous;
 	public SnakePart next;
     private boolean isDead = false;
-	
-	public SnakePart(int x, int y, SnakePart previous) {
-		super(x, y);
-		this.previous = previous;
-	}
+    public Point previousPosition;
 
 	public SnakePart(int x, int y) {
-		super(x, y);
+		super(new Point(x, y));
 	}
 	
 	public SnakePart(Point position, SnakePart previous) {
@@ -45,7 +41,9 @@ public class SnakePart extends FieldObject {
 
     @Override
     public void tick(){
-    	if (!isDead)
-			this.position = previous.position;
+    	if (!isDead) {
+			previousPosition = position;
+    		this.position = previous.previousPosition;
+		}
     }
 }

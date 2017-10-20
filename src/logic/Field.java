@@ -15,43 +15,8 @@ public class Field {
     public int width;
 
     public Field(int height, int width) {
-        
-    }
-    
-    public ArrayList<Wall> getWalls()
-    {
-        ArrayList<Wall> walls = new ArrayList<>();
-        allObjects.forEach(fieldObject -> {
-            if (fieldObject instanceof Wall) walls.add((Wall) fieldObject);
-        });
-        return walls;
-    }
-    
-    public ArrayList<Apple> getApples()
-    {
-        ArrayList<Apple> apples = new ArrayList<>();
-        allObjects.forEach(fieldObject -> {
-            if (fieldObject instanceof Apple) apples.add((Apple) fieldObject);
-        });
-        return apples;
-    }
-    
-    public ArrayList<SnakePart> getSnakeParts()
-    {
-        ArrayList<SnakePart> snakeParts = new ArrayList<>();
-        allObjects.forEach(fieldObject -> {
-            if (fieldObject instanceof SnakePart) snakeParts.add((SnakePart) fieldObject);
-        });
-        return snakeParts;
-    }
-    
-    public ArrayList<SnakeHead> getSnakeHeads()
-    {
-        ArrayList<SnakeHead> snakeHeads = new ArrayList<>();
-        allObjects.forEach(fieldObject -> {
-            if (fieldObject instanceof SnakeHead) snakeHeads.add((SnakeHead) fieldObject);
-        });
-        return snakeHeads;
+        this.height = height;
+        this.width = width;
     }
     
     public Point getRandomFreePosition()

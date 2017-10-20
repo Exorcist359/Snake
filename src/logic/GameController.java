@@ -11,10 +11,11 @@ public class GameController {
     public final int fieldWidth;
 	public final ArrayList<Snake> snakes;
     private Model model;
+    private int SEED = 3;
     
     public GameController() {
     	FieldGenerator generator = new FieldGenerator();
-    	Field field = generator.generate(1);
+    	Field field = generator.generate(SEED);
         fieldHeight = field.height;
         fieldWidth = field.width;
         model = new Model(field);
@@ -26,8 +27,7 @@ public class GameController {
     }
 
 	public boolean isGameOver(){
-		//TODO
-        return false;
+        return model.snakes.get(0).isDead();
     }
     
 
@@ -36,21 +36,39 @@ public class GameController {
     	return model.field.allObjects;
     }
 
-/*
-    public ArrayList<SnakePart> getSnake()
+    public ArrayList<Wall> getWalls()
     {
-    	return snake;
+        ArrayList<Wall> walls = new ArrayList<>();
+        model.field.allObjects.forEach(fieldObject -> {
+            if (fieldObject instanceof Wall) walls.add((Wall) fieldObject);
+        });
+        return walls;
     }
 
-    public Apple getApple() {
-    	return apple;
+    public ArrayList<Apple> getApples()
+    {
+        ArrayList<Apple> apples = new ArrayList<>();
+        model.field.allObjects.forEach(fieldObject -> {
+            if (fieldObject instanceof Apple) apples.add((Apple) fieldObject);
+        });
+        return apples;
     }
-    
-    public SnakeHead getSnakeHead() {
-    	return head;
+
+    public ArrayList<SnakePart> getSnakeParts()
+    {
+        ArrayList<SnakePart> snakeParts = new ArrayList<>();
+        model.field.allObjects.forEach(fieldObject -> {
+            if (fieldObject instanceof SnakePart) snakeParts.add((SnakePart) fieldObject);
+        });
+        return snakeParts;
     }
-    
-    public ArrayList<Wall> getWalls() {
-    	return walls;
-    }*/
+
+    public ArrayList<SnakeHead> getSnakeHeads()
+    {
+        ArrayList<SnakeHead> snakeHeads = new ArrayList<>();
+        model.field.allObjects.forEach(fieldObject -> {
+            if (fieldObject instanceof SnakeHead) snakeHeads.add((SnakeHead) fieldObject);
+        });
+        return snakeHeads;
+    }
 }
