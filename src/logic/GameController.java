@@ -11,7 +11,7 @@ public class GameController {
     public final int fieldWidth;
 	public final ArrayList<Snake> snakes;
     private Model model;
-    private int SEED = 3;
+    private int SEED = 4;
     
     public GameController() {
     	FieldGenerator generator = new FieldGenerator();
@@ -33,7 +33,7 @@ public class GameController {
 
     public ArrayList<FieldObject> getAllObjects()
     {
-    	return model.field.allObjects;
+    	return new ArrayList<FieldObject>(model.field.allObjects);
     }
 
     public ArrayList<Wall> getWalls()

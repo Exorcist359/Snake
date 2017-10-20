@@ -144,4 +144,13 @@ public class FieldGenerator {
 			width = 0;
 		return parseMaps(map);
 	}
+    
+    public Field generate(String[] map){
+		height = map.length;
+		if (height > 0)
+			width = map[0].length();
+		else
+			width = 0;
+		return parseMaps(map);
+	}
 }
