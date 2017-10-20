@@ -26,15 +26,6 @@ public class Model {
 
 	public void tick() {
 		field.allObjects.forEach(fieldObject -> fieldObject.tick());
-		/*
-		snakes.forEach(head -> {
-			field.allObjects.forEach(obj -> {
-				if (head != obj)//downcast obj to HeadSnake
-					obj.interactWithSnake(head, this);
-			});
-		});
-		*/
-		//WTF??
 		field.allObjects.forEach(fieldObject -> {
 			if (fieldObject instanceof SnakeHead){
 				SnakeHead head = (SnakeHead)fieldObject;
