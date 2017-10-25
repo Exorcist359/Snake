@@ -15,10 +15,10 @@ public abstract class FieldObject{
 
     public void interactWithSnake(SnakeHead snakeHead, Model model)
     {
-    	if (!isWalkable())
-    	{
-    		model.killSnake(snakeHead);
-    	}
+        if (!isWalkable())
+        {
+            model.killSnake(snakeHead);
+        }
     }
     
     public abstract void tick();

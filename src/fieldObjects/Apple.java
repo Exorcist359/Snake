@@ -6,24 +6,24 @@ public class Apple extends FieldObject{
 
     private boolean isActive = true;
 
-	public Apple(int x, int y) {
-		super(new Point(x, y));
-	}
+    public Apple(int x, int y) {
+        super(new Point(x, y));
+    }
 
-	public Apple(Point position) {
-		super(position);
-	}
-	
+    public Apple(Point position) {
+        super(position);
+    }
+    
     public void interactWithSnake(SnakeHead snakeHead, Model model){
         model.generateApple();
         model.increaseSnake(snakeHead);
         isActive = false;
     }
-	
+    
     @Override
     public boolean isWalkable()
     {
-    	return true;
+        return true;
     }
 
     @Override

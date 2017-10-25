@@ -10,15 +10,15 @@ public class SnakeHead extends SnakePart {
     private Field field;
 
     public SnakeHead(int x, int y, SnakeDirection direction, Field field) {
-		super(x, y);
-		this.direction = direction;
-		this.field = field;
+        super(x, y);
+        this.direction = direction;
+        this.field = field;
     }
     
     @Override
     public boolean isWalkable()
     {
-    	return false;
+        return false;
     }
 
     @Override
@@ -29,7 +29,7 @@ public class SnakeHead extends SnakePart {
     @Override
     public void tick(){
         previousPosition = position;
-    	position = Logic.getPositionAfterMovement(direction, position, field);
+        position = Logic.getPositionAfterMovement(direction, position, field);
     }
 
     

@@ -13,8 +13,8 @@ public class Snake {
     }
 
     public int getScore() {
-    	//TODO
-    	return 1;
+        //TODO
+        return 1;
     }
     
     public boolean tryChangeSnakeDirection(SnakeDirection dir){

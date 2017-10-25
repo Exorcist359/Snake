@@ -9,13 +9,13 @@ import java.util.Random;
 public class GameController {
     public final int fieldHeight;
     public final int fieldWidth;
-	public final ArrayList<Snake> snakes;
+    public final ArrayList<Snake> snakes;
     private Model model;
-    private int SEED = 4;
+    private int SEED = 3;
     
     public GameController() {
-    	FieldGenerator generator = new FieldGenerator();
-    	Field field = generator.generate(SEED);
+        FieldGenerator generator = new FieldGenerator();
+        Field field = generator.generate(SEED);
         fieldHeight = field.height;
         fieldWidth = field.width;
         model = new Model(field);
@@ -23,17 +23,17 @@ public class GameController {
     }
     
     public void tick() {
-    	model.tick();
+        model.tick();
     }
 
-	public boolean isGameOver(){
+    public boolean isGameOver(){
         return model.snakes.get(0).isDead();
     }
     
 
     public ArrayList<FieldObject> getAllObjects()
     {
-    	return new ArrayList<FieldObject>(model.field.allObjects);
+        return new ArrayList<FieldObject>(model.field.allObjects);
     }
 
     public ArrayList<Wall> getWalls()
