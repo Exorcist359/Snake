@@ -29,19 +29,19 @@ public class Frame extends JFrame {
 
             gr2d.setPaint(Color.BLACK);
             gameController.getWalls().forEach(wall ->
-                    g.fillRect(wall.position.x*SELL_SIZE, wall.position.y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
+                    g.fillRect(wall.getPosition().x*SELL_SIZE, wall.getPosition().y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
 
             gr2d.setPaint(Color.GREEN);
             gameController.getSnakeParts().forEach(snakePart ->
-                    g.fillRect(snakePart.position.x*SELL_SIZE, snakePart.position.y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
+                    g.fillRect(snakePart.getPosition().x*SELL_SIZE, snakePart.getPosition().y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
 
             gr2d.setPaint(Color.YELLOW);
             gameController.getSnakeHeads().forEach(snakePart ->
-                    g.fillRect(snakePart.position.x*SELL_SIZE, snakePart.position.y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
+                    g.fillRect(snakePart.getPosition().x*SELL_SIZE, snakePart.getPosition().y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
 
             gr2d.setPaint(Color.RED);
             gameController.getApples().forEach(snakePart ->
-                    g.fillRect(snakePart.position.x*SELL_SIZE, snakePart.position.y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
+                    g.fillRect(snakePart.getPosition().x*SELL_SIZE, snakePart.getPosition().y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
 
         }
     }
@@ -123,7 +123,5 @@ public class Frame extends JFrame {
             }
 
         }, 0 , 150);
-
     }
-
 }

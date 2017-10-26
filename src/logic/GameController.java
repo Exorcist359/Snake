@@ -9,7 +9,7 @@ public class GameController {
     public final int fieldWidth;
     public final ArrayList<Snake> snakes;
     private GameModel gameModel;
-    private int SEED = 3;
+    private int SEED = 4;
     
     public GameController() {
         FieldGenerator generator = new FieldGenerator();
@@ -17,7 +17,7 @@ public class GameController {
         fieldHeight = field.height;
         fieldWidth = field.width;
         gameModel = new GameModel(field);
-        snakes = gameModel.snakes;
+        snakes = gameModel.getSnakes();
     }
     
     public void tick() {
@@ -25,17 +25,17 @@ public class GameController {
     }
 
     public boolean isGameOver() {
-        return gameModel.snakes.get(0).isDead();
+        return gameModel.getSnakes().get(0).isDead();
     }
     
 
     public ArrayList<FieldObject> getAllObjects() {
-        return new ArrayList<FieldObject>(gameModel.field.allObjects);
+        return new ArrayList<FieldObject>(gameModel.getField().getAllObjects());
     }
 
     public ArrayList<Wall> getWalls() {
         ArrayList<Wall> walls = new ArrayList<>();
-        gameModel.field.allObjects.forEach(fieldObject -> {
+        gameModel.getField().getAllObjects().forEach(fieldObject -> {
             if (fieldObject instanceof Wall) walls.add((Wall) fieldObject);
         });
         return walls;
@@ -43,7 +43,7 @@ public class GameController {
 
     public ArrayList<Apple> getApples() {
         ArrayList<Apple> apples = new ArrayList<>();
-        gameModel.field.allObjects.forEach(fieldObject -> {
+        gameModel.getField().getAllObjects().forEach(fieldObject -> {
             if (fieldObject instanceof Apple) apples.add((Apple) fieldObject);
         });
         return apples;
@@ -51,7 +51,7 @@ public class GameController {
 
     public ArrayList<SnakePart> getSnakeParts() {
         ArrayList<SnakePart> snakeParts = new ArrayList<>();
-        gameModel.field.allObjects.forEach(fieldObject -> {
+        gameModel.getField().getAllObjects().forEach(fieldObject -> {
             if (fieldObject instanceof SnakePart) snakeParts.add((SnakePart) fieldObject);
         });
         return snakeParts;
@@ -59,7 +59,7 @@ public class GameController {
 
     public ArrayList<SnakeHead> getSnakeHeads() {
         ArrayList<SnakeHead> snakeHeads = new ArrayList<>();
-        gameModel.field.allObjects.forEach(fieldObject -> {
+        gameModel.getField().getAllObjects().forEach(fieldObject -> {
             if (fieldObject instanceof SnakeHead) snakeHeads.add((SnakeHead) fieldObject);
         });
         return snakeHeads;

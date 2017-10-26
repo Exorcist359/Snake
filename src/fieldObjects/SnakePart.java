@@ -3,9 +3,8 @@ package fieldObjects;
 import logic.Point;
 
 public class SnakePart extends FieldObject {
-
-    public SnakePart previous;
-    public SnakePart next;
+    private SnakePart previous;
+    private SnakePart next;
     private boolean isDead = false;
     public Point previousPosition;
 
@@ -17,7 +16,23 @@ public class SnakePart extends FieldObject {
         super(position);
         this.previous = previous;
     }
+    
+    public SnakePart getNext() {
+        return next;
+    }
+    
+    public void setNext(SnakePart next) {
+        this.next = next;
+    }
+    
+    public SnakePart getPrevious() {
+        return previous;
+    }
 
+    public void setPrevious(SnakePart previous) {
+        this.previous = previous;
+    }
+    
     public boolean isDead() {
         return isDead;
     }

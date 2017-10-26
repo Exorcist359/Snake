@@ -19,3 +19,5 @@
 /Model.class
 /GameController.class
 /FieldGenerator.class
+/GameModel.class
+/MovementLogic.class

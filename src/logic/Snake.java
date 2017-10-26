@@ -18,8 +18,8 @@ public class Snake {
     }
     
     public boolean tryChangeSnakeDirection(SnakeDirection dir) {
-        if (!SnakeDirection.isOppositeDirection(snakeHead.direction, dir)) {
-            snakeHead.direction = dir;
+        if (!SnakeDirection.isOppositeDirection(snakeHead.getDirection(), dir)) {
+            snakeHead.setDirection(dir);
             return true;
         }
         return false;

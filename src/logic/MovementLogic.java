@@ -1,8 +1,7 @@
 package logic;
 
 public class MovementLogic {
-
-    public static Point getPositionAfterMovement(SnakeDirection direction, Point from, Field field) {
+	public static Point getPositionAfterMovement(SnakeDirection direction, Point from, Field field) {
         int height = field.height;
         int width = field.width;
         int newX = from.x;

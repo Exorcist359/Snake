@@ -3,7 +3,6 @@ package fieldObjects;
 import logic.Point;
 
 public class Wall extends FieldObject {
-
     public Wall(int x, int y) {
         super(new Point(x, y));
     }

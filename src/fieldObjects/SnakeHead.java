@@ -5,13 +5,21 @@ import logic.MovementLogic;
 import logic.Field;
 
 public class SnakeHead extends SnakePart {
-    public SnakeDirection direction;
+    private SnakeDirection direction;
     private Field field;
 
     public SnakeHead(int x, int y, SnakeDirection direction, Field field) {
         super(x, y);
         this.direction = direction;
         this.field = field;
+    }
+    
+    public SnakeDirection getDirection() {
+        return direction;
+    }
+    
+    public void setDirection(SnakeDirection direction) {
+        this.direction = direction;
     }
     
     @Override

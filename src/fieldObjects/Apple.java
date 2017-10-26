@@ -2,8 +2,7 @@ package fieldObjects;
 import logic.GameModel;
 import logic.Point;
 
-public class Apple extends FieldObject{
-
+public class Apple extends FieldObject {
     private boolean isActive = true;
 
     public Apple(int x, int y) {

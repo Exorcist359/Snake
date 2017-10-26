@@ -10,13 +10,21 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Field {
-    public ArrayList<FieldObject> allObjects;
-    public int height;
-    public int width;
+    private ArrayList<FieldObject> allObjects;
+    public final int height;
+    public final int width;
 
     public Field(int height, int width) {
         this.height = height;
         this.width = width;
+    }
+    
+    public ArrayList<FieldObject> getAllObjects() {
+        return allObjects;
+    }
+
+    public void setAllObjects(ArrayList<FieldObject> allObjects) {
+        this.allObjects = allObjects;
     }
     
     public Point getRandomFreePosition() {
@@ -45,7 +53,7 @@ public class Field {
             boolean free = true;
             for(int j = 0; j < allObjects.size(); j++) {
                 FieldObject obj = allObjects.get(j);
-                if (obj.position.equals(point)) {
+                if (obj.getPosition().equals(point)) {
                     free = false;
                     break;
                 }

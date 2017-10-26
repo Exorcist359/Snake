@@ -73,7 +73,7 @@ public class FieldGenerator {
                 "                        ",
                 "                        ",
                 "                        ",
-                "                        ",
+                "          V             ",
                 "                        ",
                 "                        ",
                 "                        ",
@@ -130,7 +130,7 @@ public class FieldGenerator {
                         break;
                 }
             }
-        field.allObjects = all;
+        field.setAllObjects(all);
         return field;
     }
 

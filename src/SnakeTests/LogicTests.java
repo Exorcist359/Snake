@@ -93,7 +93,7 @@ public class LogicTests {
         Field field = GenerateField("walls_around");
         GameModel gameModel = new GameModel(field);
         gameModel.tick();
-        assertTrue(gameModel.snakes.get(0).isDead());
+        assertTrue(gameModel.getSnakes().get(0).isDead());
     }
 
     @Test
@@ -102,8 +102,8 @@ public class LogicTests {
         GameModel gameModel = new GameModel(field);
 
         gameModel.generateApple();
-        field.allObjects.removeIf(obj -> !(obj instanceof Apple));
-        assertEquals(1, field.allObjects.size());
+        field.getAllObjects().removeIf(obj -> !(obj instanceof Apple));
+        assertEquals(1, field.getAllObjects().size());
     }
 
     @Test
@@ -115,9 +115,9 @@ public class LogicTests {
         gameModel.increaseSnake(snakeHead);
         int snake_len = 1;
         SnakePart snakePart = snakeHead;
-        while (snakePart.next != null) {
+        while (snakePart.getNext() != null) {
             snake_len++;
-            snakePart = snakePart.next;
+            snakePart = snakePart.getNext();
         }
         assertEquals(2, snake_len);
     }
