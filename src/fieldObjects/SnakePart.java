@@ -18,21 +18,18 @@ public class SnakePart extends FieldObject {
         this.previous = previous;
     }
 
-    public boolean isDead()
-    {
+    public boolean isDead() {
         return isDead;
     }
 
-    public void die()
-    {
+    public void die() {
         isDead = true;
     }
     
     @Override
-    public boolean isWalkable()
-     {
-         return false;
-     }
+    public boolean isWalkable() {
+        return false;
+    }
     
     @Override
     public boolean isActive() {
@@ -40,7 +37,7 @@ public class SnakePart extends FieldObject {
     }
 
     @Override
-    public void tick(){
+    public void tick() {
         if (!isDead) {
             previousPosition = position;
             this.position = previous.previousPosition;

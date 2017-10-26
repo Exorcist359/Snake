@@ -4,11 +4,11 @@ import fieldObjects.SnakeHead;
 
 public class Snake {
     private SnakeHead snakeHead;
-    public Snake(SnakeHead snakeHead){
+    public Snake(SnakeHead snakeHead) {
         this.snakeHead = snakeHead;
     }
 
-    public boolean isDead(){
+    public boolean isDead() {
         return snakeHead.isDead();
     }
 
@@ -17,8 +17,8 @@ public class Snake {
         return 1;
     }
     
-    public boolean tryChangeSnakeDirection(SnakeDirection dir){
-        if (!Logic.isOppositeDirection(snakeHead.direction, dir)){
+    public boolean tryChangeSnakeDirection(SnakeDirection dir) {
+        if (!SnakeDirection.isOppositeDirection(snakeHead.direction, dir)) {
             snakeHead.direction = dir;
             return true;
         }

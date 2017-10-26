@@ -5,16 +5,15 @@ import java.util.Random;
 
 import fieldObjects.*;
 
-public class Model {
+public class GameModel {
     public Field field;
     public ArrayList<Snake> snakes;
     private ArrayList<FieldObject> addedNewObj;
 
-    public Model(Field field) {
+    public GameModel(Field field) {
         this.field = field;
         snakes = new ArrayList<Snake>();
-        field.allObjects.forEach(obj -> 
-        {
+        field.allObjects.forEach(obj -> {
             if (obj instanceof SnakeHead)
                 snakes.add(new Snake((SnakeHead)obj));
         });
@@ -25,15 +24,13 @@ public class Model {
     }
 
     public void tick() {
-        field.allObjects.forEach(fieldObject -> fieldObject.tick());
+        field.allObjects.forEach(FieldObject::tick);
         field.allObjects.forEach(fieldObject -> {
-            if (fieldObject instanceof SnakeHead){
+            if (fieldObject instanceof SnakeHead) {
                 SnakeHead head = (SnakeHead)fieldObject;
                 field.allObjects.forEach(obj -> {
-                    //may be problem with two snakes
-                    if (head != obj && head.position.equals(obj.position)){
+                    if (head != obj && head.position.equals(obj.position))
                         obj.interactWithSnake(head, this);
-                    }
                 });
             }
         });
@@ -48,7 +45,6 @@ public class Model {
 
     public void generateApple() {
         Point position = field.getRandomFreePosition();
-        //May be exeption field.allObject.add
         addedNewObj.add(new Apple(position));
     }
     
@@ -61,22 +57,15 @@ public class Model {
     
     private SnakePart getLastSnakePart(SnakeHead snakeHead) {
         SnakePart current = snakeHead;
-        while(true)
-        {
-            if (current.next == null)
-                return current;
+        while(current.next != null) {
             current = current.next;
         }
+        return current;
     }
     
     private void killAllSnakePartsFromHead(SnakeHead snakeHead) {
-        SnakePart current = snakeHead;
-        while(true)
-        {
+        for(SnakePart current = snakeHead; current != null; current = current.next){
             current.die();
-            if (current.next == null)
-                break;
-            current = current.next;
         }
     }
 }

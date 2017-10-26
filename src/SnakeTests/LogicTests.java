@@ -4,17 +4,15 @@ import logic.*;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.junit.Assert.*;
 
 public class LogicTests {
-    private Field GenerateField(String map_name)
-    {
+    private Field GenerateField(String map_name) {
         HashMap<String, String[]> maps = new HashMap<>();
         FieldGenerator gen = new FieldGenerator();
-        maps.put("simple", new String[]{
+        maps.put("simple", new String[] {
                 "      ",
                 "      ",
                 "      ",
@@ -22,7 +20,7 @@ public class LogicTests {
                 "      ",
                 "      "
         });
-        maps.put("walls_around", new String[]{
+        maps.put("walls_around", new String[] {
                 "######",
                 "# A  #",
                 "#    #",
@@ -50,10 +48,9 @@ public class LogicTests {
                 };
         Field field = GenerateField("simple");
         
-        for (int i = 0; i < 4; i++)
-        {
+        for (int i = 0; i < 4; i++) {
         	assertEquals(finish[i],
-        			Logic.getPositionAfterMovement(dirs[i], start, field));
+        			MovementLogic.getPositionAfterMovement(dirs[i], start, field));
         }
     }
     
@@ -83,12 +80,10 @@ public class LogicTests {
         };
         Field field = GenerateField("simple");
         
-        for (int i = 0; i < 2; i++)
-        {
-        	for (int j = 0; j < 4; j++)
-            {        	
+        for (int i = 0; i < 2; i++) {
+        	for (int j = 0; j < 4; j++) {
                 assertEquals(finish[i][j], 
-        		    	Logic.getPositionAfterMovement(dirs[j], start[i], field));
+        		    	MovementLogic.getPositionAfterMovement(dirs[j], start[i], field));
             }
         }
     }
@@ -96,17 +91,17 @@ public class LogicTests {
     @Test
     public void testSnakeInterractWithWall(){
         Field field = GenerateField("walls_around");
-        Model model = new Model(field);
-        model.tick();
-        assertTrue(model.snakes.get(0).isDead());
+        GameModel gameModel = new GameModel(field);
+        gameModel.tick();
+        assertTrue(gameModel.snakes.get(0).isDead());
     }
 
     @Test
     public void testAppleGenerator(){
         Field field = GenerateField("simple");
-        Model model = new Model(field);
+        GameModel gameModel = new GameModel(field);
 
-        model.generateApple();
+        gameModel.generateApple();
         field.allObjects.removeIf(obj -> !(obj instanceof Apple));
         assertEquals(1, field.allObjects.size());
     }
@@ -114,10 +109,10 @@ public class LogicTests {
     @Test
     public void testIncreaseSnake(){
         Field field = GenerateField("simple");
-        Model model = new Model(field);
+        GameModel gameModel = new GameModel(field);
 
         SnakeHead snakeHead = new SnakeHead(3,3, SnakeDirection.Up, field);
-        model.increaseSnake(snakeHead);
+        gameModel.increaseSnake(snakeHead);
         int snake_len = 1;
         SnakePart snakePart = snakeHead;
         while (snakePart.next != null) {
@@ -130,21 +125,21 @@ public class LogicTests {
     @Test
     public void testSnakeInterractWithApple(){
         Field field = GenerateField("walls_around");
-        Model model = new Model(field);
+        GameModel gameModel = new GameModel(field);
 
         SnakeHead snakeHead = new SnakeHead(3,3, SnakeDirection.Up, field);
         Apple apple = new Apple(3,3);
-        apple.interactWithSnake(snakeHead, model);
+        apple.interactWithSnake(snakeHead, gameModel);
         assertFalse(apple.isActive());
     }
 
     @Test
     public void testSnakeInterractWithSelf(){
         Field field = GenerateField("simple");
-        Model model = new Model(field);
+        GameModel gameModel = new GameModel(field);
         SnakeHead snakeHead = new SnakeHead(3,3,SnakeDirection.Up,field);
         SnakePart snakePart = new SnakePart(3,3);
-        snakePart.interactWithSnake(snakeHead, model);
+        snakePart.interactWithSnake(snakeHead, gameModel);
         assertTrue(snakeHead.isDead());
     }
 }

@@ -1,5 +1,5 @@
 package fieldObjects;
-import logic.Model;
+import logic.GameModel;
 import logic.Point;
 
 public class Apple extends FieldObject{
@@ -14,15 +14,14 @@ public class Apple extends FieldObject{
         super(position);
     }
     
-    public void interactWithSnake(SnakeHead snakeHead, Model model){
-        model.generateApple();
-        model.increaseSnake(snakeHead);
+    public void interactWithSnake(SnakeHead snakeHead, GameModel gameModel) {
+        gameModel.generateApple();
+        gameModel.increaseSnake(snakeHead);
         isActive = false;
     }
     
     @Override
-    public boolean isWalkable()
-    {
+    public boolean isWalkable() {
         return true;
     }
 

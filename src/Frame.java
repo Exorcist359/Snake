@@ -8,20 +8,20 @@ import logic.GameController;
 import logic.SnakeDirection;
 
 
-public class Frame extends JFrame{
+public class Frame extends JFrame {
     private GameController gameController;
     private int WIN_WIDTH = 500;
     private int WIN_HEIGHT = 500;
 
     private int SELL_SIZE = 25;
 
-    private class MyPanel extends JPanel{
-        public MyPanel(){
+    private class MyPanel extends JPanel {
+        public MyPanel() {
             super();
         }
 
         @Override
-        public void paint(Graphics g){
+        public void paint(Graphics g) {
             g.clearRect(0, 0, WIN_WIDTH, WIN_HEIGHT);
 
             super.paint(g);
@@ -48,7 +48,7 @@ public class Frame extends JFrame{
 
     private MyPanel panel = new MyPanel();
 
-    public Frame(){
+    public Frame() {
         super("Snake");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getContentPane().setBackground(Color.white);
@@ -72,7 +72,7 @@ public class Frame extends JFrame{
         this.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                switch (e.getKeyCode()){
+                switch (e.getKeyCode()) {
                     case 37:
                         snakeDir = SnakeDirection.Left;
                         isDirectionChanged = true;
@@ -109,15 +109,14 @@ public class Frame extends JFrame{
         */
         Timer t = new Timer();
         t.scheduleAtFixedRate(new TimerTask() {
-
             @Override
             public void run() {
-                if(isDirectionChanged){
+                if(isDirectionChanged) {
                     gameController.snakes.get(0).tryChangeSnakeDirection(snakeDir);
                     isDirectionChanged = false;
                 };
                 gameController.tick();
-                if(gameController.isGameOver() == true)
+                if(gameController.isGameOver())
                     t.cancel();
                 panel.repaint();
 

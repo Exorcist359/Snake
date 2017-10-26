@@ -19,8 +19,7 @@ public class Field {
         this.width = width;
     }
     
-    public Point getRandomFreePosition()
-    {
+    public Point getRandomFreePosition() {
         ArrayList<Point> allPoints = getAllPoints();
         ArrayList<Point> freePoints = getFreePoints(allPoints);
 
@@ -29,13 +28,10 @@ public class Field {
         return freePoints.get(index);
     }
 
-    public ArrayList<Point> getAllPoints()
-    {
+    public ArrayList<Point> getAllPoints() {
         ArrayList<Point> allPoints = new ArrayList<Point>();
-        for (int x = 0; x < width; x++)
-        {
-            for (int y = 0; y < height; y++)
-            {
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
                 allPoints.add(new Point(x,y));
             }
         }
@@ -44,15 +40,12 @@ public class Field {
     
     public ArrayList<Point> getFreePoints(ArrayList<Point> allPoints) {
         ArrayList<Point> freePoints = new ArrayList<Point>();
-        for (int i = 0; i < allPoints.size(); i++)
-        {
+        for (int i = 0; i < allPoints.size(); i++) {
             Point point = allPoints.get(i);
             boolean free = true;
-            for(int j = 0; j < allObjects.size(); j++)
-            {
+            for(int j = 0; j < allObjects.size(); j++) {
                 FieldObject obj = allObjects.get(j);
-                if (obj.position.equals(point))
-                {
+                if (obj.position.equals(point)) {
                     free = false;
                     break;
                 }

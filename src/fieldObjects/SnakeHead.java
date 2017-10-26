@@ -1,8 +1,7 @@
 package fieldObjects;
 
 import logic.SnakeDirection;
-import logic.Point;
-import logic.Logic;
+import logic.MovementLogic;
 import logic.Field;
 
 public class SnakeHead extends SnakePart {
@@ -16,8 +15,7 @@ public class SnakeHead extends SnakePart {
     }
     
     @Override
-    public boolean isWalkable()
-    {
+    public boolean isWalkable() {
         return false;
     }
 
@@ -27,10 +25,9 @@ public class SnakeHead extends SnakePart {
     }    
 
     @Override
-    public void tick(){
+    public void tick() {
         previousPosition = position;
-        position = Logic.getPositionAfterMovement(direction, position, field);
+        position = MovementLogic.getPositionAfterMovement(direction, position, field);
     }
 
-    
 }

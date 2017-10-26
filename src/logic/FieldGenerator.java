@@ -14,7 +14,7 @@ public class FieldGenerator {
         //here will be working with seeds for maps, maybe levels will be from txt files
         //What do this class: upload seed.txt, parsing data, put to FieldObject[][], set fieldWidth and fieldHeight
         maps = new HashMap<Integer, String[]>();
-        maps.put(1, new String[]{
+        maps.put(1, new String[] {
                 "##########",
                 "#        #",
                 "#        #",
@@ -24,7 +24,7 @@ public class FieldGenerator {
                 "#   A    #",
                 "##########"
         });
-        maps.put(2, new String[]{
+        maps.put(2, new String[] {
                 "####################",
                 "#   >              #",
                 "#     ######       #",
@@ -41,7 +41,7 @@ public class FieldGenerator {
                 "#                  #",
                 "####################"
         });
-        maps.put(3, new String[]{
+        maps.put(3, new String[] {
                 "########################",
                 "#                      #",
                 "#      #######         #",
@@ -61,7 +61,7 @@ public class FieldGenerator {
                 "#                   <  #",
                 "########################"
         });
-        maps.put(4, new String[]{
+        maps.put(4, new String[] {
                 "                        ",
                 "                        ",
                 "                        ",
@@ -80,7 +80,7 @@ public class FieldGenerator {
                 "                        ",
                 "                        "
         });
-        maps.put(5, new String[]{
+        maps.put(5, new String[] {
                 "                                    ",
                 "                                    ",
                 "                                    ",
@@ -106,13 +106,13 @@ public class FieldGenerator {
         });
     }
 
-    private Field parseMaps(String[] map){
+    private Field parseMaps(String[] map) {
         ArrayList<FieldObject> all = new ArrayList<>();
         Field field = new Field(height, width);
         for (int i = 0; i < height; i++)
             for (int j = 0; j < width; j++) {
                 char currentSymb = map[i].charAt(j);
-                switch (currentSymb){
+                switch (currentSymb) {
                     case '#':
                         all.add(new Wall(j, i));
                         break;
@@ -134,7 +134,7 @@ public class FieldGenerator {
         return field;
     }
 
-    public Field generate(int seed){
+    public Field generate(int seed) {
         String[] map = maps.get(seed);
 
         height = map.length;
