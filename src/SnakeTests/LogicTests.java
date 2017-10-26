@@ -93,7 +93,7 @@ public class LogicTests {
         Field field = GenerateField("walls_around");
         GameModel gameModel = new GameModel(field);
         gameModel.tick();
-        assertTrue(gameModel.snakes.get(0).isDead());
+        assertTrue(gameModel.snakes .get(0).isDead());
     }
 
     @Test
