@@ -112,7 +112,7 @@ public class Frame extends JFrame {
             @Override
             public void run() {
                 if(isDirectionChanged) {
-                    gameController.snakes.get(0).tryChangeSnakeDirection(snakeDir);
+                    gameController.snakes.get(1).tryChangeSnakeDirection(snakeDir);
                     isDirectionChanged = false;
                 };
                 gameController.tick();
