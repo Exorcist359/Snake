@@ -12,11 +12,11 @@ public class FieldWrapper {
     }
 
     public int getWidth() {
-        return  field.width;
+        return field.width;
     }
 
     public int getHeight() {
-        return  field.height;
+        return field.height;
     }
 
     public ArrayList<FieldObject> getAllObjects() {

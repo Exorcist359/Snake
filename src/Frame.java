@@ -27,22 +27,22 @@ public class Frame extends JFrame {
 
             super.paint(g);
             Graphics2D gr2d = (Graphics2D) g;
-
-            gr2d.setPaint(Color.BLACK);
-            gameController.getWalls().forEach(wall ->
-                    g.fillRect(wall.getPosition().x*SELL_SIZE, wall.getPosition().y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
-
-            gr2d.setPaint(Color.GREEN);
-            gameController.getSnakeParts().forEach(snakePart ->
-                    g.fillRect(snakePart.getPosition().x*SELL_SIZE, snakePart.getPosition().y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
-
-            gr2d.setPaint(Color.YELLOW);
-            gameController.getSnakeHeads().forEach(snakePart ->
-                    g.fillRect(snakePart.getPosition().x*SELL_SIZE, snakePart.getPosition().y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
-
-            gr2d.setPaint(Color.RED);
-            gameController.getApples().forEach(snakePart ->
-                    g.fillRect(snakePart.getPosition().x*SELL_SIZE, snakePart.getPosition().y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
+//
+//            gr2d.setPaint(Color.BLACK);
+//            gameController.getWalls().forEach(wall ->
+//                    g.fillRect(wall.getPosition().x*SELL_SIZE, wall.getPosition().y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
+//
+//            gr2d.setPaint(Color.GREEN);
+//            gameController.getSnakeParts().forEach(snakePart ->
+//                    g.fillRect(snakePart.getPosition().x*SELL_SIZE, snakePart.getPosition().y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
+//
+//            gr2d.setPaint(Color.YELLOW);
+//            gameController.getSnakeHeads().forEach(snakePart ->
+//                    g.fillRect(snakePart.getPosition().x*SELL_SIZE, snakePart.getPosition().y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
+//
+//            gr2d.setPaint(Color.RED);
+//            gameController.getApples().forEach(snakePart ->
+//                    g.fillRect(snakePart.getPosition().x*SELL_SIZE, snakePart.getPosition().y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
 
         }
     }
@@ -65,8 +65,8 @@ public class Frame extends JFrame {
 
     public void execute() throws Exception {
         gameController = new GameController();
-        WIN_HEIGHT = gameController.fieldHeight * SELL_SIZE+37;
-        WIN_WIDTH = gameController.fieldWidth * SELL_SIZE+14;
+        WIN_HEIGHT = 0;//gameController.fieldHeight * SELL_SIZE+37;
+        WIN_WIDTH = 0;//gameController.fieldWidth * SELL_SIZE+14;
 
         this.setBounds(100, 100, WIN_WIDTH, WIN_HEIGHT);
 
