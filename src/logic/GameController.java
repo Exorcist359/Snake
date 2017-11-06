@@ -26,7 +26,7 @@ public class GameController {
         return gameModel.getSnakes().get(0).isDead();
     }
 
-    public FieldWrapper getWrapper() {
+    public FieldWrapper getFieldWrapper() {
         return wrapper;
     }
 }
