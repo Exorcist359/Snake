@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/fieldObjects/SnakeHead.java" line="35" />
+    <bookmark url="file://$PROJECT_DIR$/src/fieldObjects/SnakeHead.java" line="36" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfb50c50-53f7-49a9-a0a0-2912192dfdae" name="Default" comment="" />
@@ -18,8 +18,8 @@
       <file leaf-file-name="Frame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Frame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2625">
-              <caret line="114" column="47" lean-forward="false" selection-start-line="114" selection-start-column="47" selection-end-line="114" selection-end-column="47" />
+            <state relative-caret-position="407">
+              <caret line="119" column="18" lean-forward="false" selection-start-line="119" selection-start-column="18" selection-end-line="119" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -30,45 +30,11 @@
       <file leaf-file-name="Snake.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/logic/Snake.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="14" column="15" lean-forward="false" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/logic/GameModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-725">
-              <caret line="18" column="11" lean-forward="false" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+            <state relative-caret-position="400">
+              <caret line="20" column="39" lean-forward="true" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1509035674925" expanded="true" signature="2310:2355" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Field.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/logic/Field.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="66" column="17" lean-forward="false" selection-start-line="66" selection-start-column="17" selection-end-line="66" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SnakeHead.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fieldObjects/SnakeHead.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="6" column="11" lean-forward="false" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#360#361#0" expanded="true" />
+                <element signature="e#406#407#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -77,19 +43,50 @@
       <file leaf-file-name="SnakeBot.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/logic/SnakeBot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="2" column="26" lean-forward="false" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-              <folding />
+            <state relative-caret-position="-171">
+              <caret line="18" column="32" lean-forward="false" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#245#246#0" expanded="true" />
+                <element signature="e#279#280#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FieldGenerator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/logic/FieldGenerator.java">
+      <file leaf-file-name="GameModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/logic/GameModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="129" column="30" lean-forward="false" selection-start-line="129" selection-start-column="30" selection-end-line="129" selection-end-column="30" />
-              <folding />
+            <state relative-caret-position="150">
+              <caret line="34" column="8" lean-forward="false" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1509971858810" expanded="true" signature="2344:2389" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SnakeHead.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fieldObjects/SnakeHead.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="404">
+              <caret line="36" column="16" lean-forward="true" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Field.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/logic/Field.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="103">
+              <caret line="12" column="45" lean-forward="false" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="45" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -97,9 +94,23 @@
       <file leaf-file-name="GameController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/logic/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="44" column="52" lean-forward="true" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="52" />
+            <state relative-caret-position="25">
+              <caret line="8" column="32" lean-forward="true" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SnakePart.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fieldObjects/SnakePart.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="55" column="8" lean-forward="false" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="22" />
+              <folding>
+                <element signature="method#SnakePart#1;class#SnakePart#0" expanded="false" />
+                <element signature="e#820#821#0" expanded="true" />
+                <element signature="e#849#850#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -160,21 +171,21 @@
         <option value="$PROJECT_DIR$/src/fieldObjects/Wall.java" />
         <option value="$PROJECT_DIR$/src/logic/Point.java" />
         <option value="$PROJECT_DIR$/src/logic/GameController.java" />
-        <option value="$PROJECT_DIR$/src/logic/GameModel.java" />
         <option value="$PROJECT_DIR$/src/logic/MovementLogic.java" />
         <option value="$PROJECT_DIR$/src/logic/Field.java" />
-        <option value="$PROJECT_DIR$/src/logic/Snake.java" />
         <option value="$PROJECT_DIR$/src/logic/.gitignore" />
         <option value="$PROJECT_DIR$/src/fieldObjects/.gitignore" />
         <option value="$PROJECT_DIR$/src/.gitignore" />
         <option value="$PROJECT_DIR$/src/SnakeTests/LogicTests.java" />
         <option value="$PROJECT_DIR$/src/fieldObjects/Apple.java" />
         <option value="$PROJECT_DIR$/src/logic/SnakeDirection.java" />
-        <option value="$PROJECT_DIR$/src/Frame.java" />
-        <option value="$PROJECT_DIR$/src/fieldObjects/SnakeHead.java" />
         <option value="$PROJECT_DIR$/src/fieldObjects/SnakeBot.java" />
         <option value="$PROJECT_DIR$/src/logic/FieldGenerator.java" />
+        <option value="$PROJECT_DIR$/src/logic/Snake.java" />
         <option value="$PROJECT_DIR$/src/logic/SnakeBot.java" />
+        <option value="$PROJECT_DIR$/src/Frame.java" />
+        <option value="$PROJECT_DIR$/src/fieldObjects/SnakeHead.java" />
+        <option value="$PROJECT_DIR$/src/logic/GameModel.java" />
       </list>
     </option>
   </component>
@@ -566,6 +577,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1640625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -579,7 +591,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -704,17 +715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/fieldObjects/SnakePart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="607">
-          <caret line="39" column="23" lean-forward="false" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
-          <folding>
-            <element signature="method#SnakePart#1;class#SnakePart#0" expanded="false" />
-            <element signature="method#isDead#0;class#SnakePart#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/fieldObjects/Wall.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
@@ -795,49 +795,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/Snake.java">
+    <entry file="file://$PROJECT_DIR$/src/logic/FieldGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="14" column="15" lean-forward="false" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+        <state relative-caret-position="1550">
+          <caret line="129" column="30" lean-forward="false" selection-start-line="129" selection-start-column="30" selection-end-line="129" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Frame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2625">
-          <caret line="114" column="47" lean-forward="false" selection-start-line="114" selection-start-column="47" selection-end-line="114" selection-end-column="47" />
+        <state relative-caret-position="407">
+          <caret line="119" column="18" lean-forward="false" selection-start-line="119" selection-start-column="18" selection-end-line="119" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fieldObjects/SnakePart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="55" column="8" lean-forward="false" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="22" />
+          <folding>
+            <element signature="method#SnakePart#1;class#SnakePart#0" expanded="false" />
+            <element signature="e#820#821#0" expanded="true" />
+            <element signature="e#849#850#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/Field.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="66" column="17" lean-forward="false" selection-start-line="66" selection-start-column="17" selection-end-line="66" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/GameModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-725">
-          <caret line="18" column="11" lean-forward="false" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1509035674925" expanded="true" signature="2310:2355" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fieldObjects/SnakeHead.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="11" lean-forward="false" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+        <state relative-caret-position="103">
+          <caret line="12" column="45" lean-forward="false" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -846,25 +837,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="44" column="52" lean-forward="true" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="52" />
+        <state relative-caret-position="25">
+          <caret line="8" column="32" lean-forward="true" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/FieldGenerator.java">
+    <entry file="file://$PROJECT_DIR$/src/fieldObjects/SnakeHead.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="129" column="30" lean-forward="false" selection-start-line="129" selection-start-column="30" selection-end-line="129" selection-end-column="30" />
-          <folding />
+        <state relative-caret-position="404">
+          <caret line="36" column="16" lean-forward="true" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/GameModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="34" column="8" lean-forward="false" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1509971858810" expanded="true" signature="2344:2389" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/Snake.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="20" column="39" lean-forward="true" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+          <folding>
+            <element signature="e#360#361#0" expanded="true" />
+            <element signature="e#406#407#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/SnakeBot.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="26" lean-forward="false" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-          <folding />
+        <state relative-caret-position="-171">
+          <caret line="18" column="32" lean-forward="false" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#245#246#0" expanded="true" />
+            <element signature="e#279#280#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

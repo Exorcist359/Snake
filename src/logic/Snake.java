@@ -16,7 +16,11 @@ public class Snake {
         //TODO
         return 1;
     }
-    
+
+    public Point getHeadPosition() {
+        return snakeHead.getPosition();
+    }
+
     public boolean tryChangeSnakeDirection(SnakeDirection dir) {
         if (!snakeHead.getDirection().isOppositeDirection(dir)) {
             snakeHead.setDirection(dir);

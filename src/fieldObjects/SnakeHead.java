@@ -29,12 +29,14 @@ public class SnakeHead extends SnakePart {
     @Override
     public boolean isActive() {
         return true;
-    }    
+    }
 
     @Override
     public void tick() {
-        previousPosition = position;
-        position = field.getPositionAfterMovement(direction, position);
+        if (!isDead()) {
+            previousPosition = position;
+            position = field.getPositionAfterMovement(direction, position);
+        }
     }
 
 }

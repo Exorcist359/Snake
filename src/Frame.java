@@ -5,6 +5,7 @@ import java.util.TimerTask;
 import javax.swing.*;
 
 import logic.GameController;
+import logic.SnakeBot;
 import logic.SnakeDirection;
 
 
@@ -107,14 +108,16 @@ public class Frame extends JFrame {
         }
         //end music
         */
+        SnakeBot bot = new SnakeBot(gameController.snakes.get(1));
         Timer t = new Timer();
         t.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 if(isDirectionChanged) {
-                    gameController.snakes.get(1).tryChangeSnakeDirection(snakeDir);
+                    gameController.snakes.get(0).tryChangeSnakeDirection(snakeDir);
                     isDirectionChanged = false;
                 };
+                //bot.getNextDirection();
                 gameController.tick();
                 if(gameController.isGameOver())
                     t.cancel();

@@ -34,6 +34,7 @@ public class GameModel {
     public void tick() {
         field.getAllObjects().forEach(FieldObject::tick);
         field.getAllObjects().forEach(fieldObject -> {
+            //fieldObject.tick();
             if (fieldObject instanceof SnakeHead) {
                 SnakeHead head = (SnakeHead)fieldObject;
                 field.getAllObjects().forEach(obj -> {
