@@ -50,12 +50,12 @@ public class LogicTests {
         
         for (int i = 0; i < 4; i++) {
         	assertEquals(finish[i],
-        			MovementLogic.getPositionAfterMovement(dirs[i], start, field));
+        			field.getPositionAfterMovement(dirs[i], start));
         }
     }
     
     @Test
-    public void testPositionAfterMovingInCorners() {
+    public void testPositionAfterMovingInEdges() {
         SnakeDirection[] dirs = {
                 SnakeDirection.Up,
                 SnakeDirection.Down,
@@ -83,7 +83,7 @@ public class LogicTests {
         for (int i = 0; i < 2; i++) {
         	for (int j = 0; j < 4; j++) {
                 assertEquals(finish[i][j], 
-        		    	MovementLogic.getPositionAfterMovement(dirs[j], start[i], field));
+        		    	field.getPositionAfterMovement(dirs[j], start[i]));
             }
         }
     }

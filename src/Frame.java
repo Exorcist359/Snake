@@ -1,15 +1,19 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.Wrapper;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.*;
 
+import logic.FieldWrapper;
 import logic.GameController;
+import logic.SnakeBot;
 import logic.SnakeDirection;
 
 
 public class Frame extends JFrame {
     private GameController gameController;
+    private FieldWrapper fieldWrapper;
     private int WIN_WIDTH = 500;
     private int WIN_HEIGHT = 500;
 
@@ -27,20 +31,21 @@ public class Frame extends JFrame {
             super.paint(g);
             Graphics2D gr2d = (Graphics2D) g;
 
+
             gr2d.setPaint(Color.BLACK);
-            gameController.getWalls().forEach(wall ->
+            fieldWrapper.getWalls().forEach(wall ->
                     g.fillRect(wall.getPosition().x*SELL_SIZE, wall.getPosition().y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
 
             gr2d.setPaint(Color.GREEN);
-            gameController.getSnakeParts().forEach(snakePart ->
+            fieldWrapper.getSnakeParts().forEach(snakePart ->
                     g.fillRect(snakePart.getPosition().x*SELL_SIZE, snakePart.getPosition().y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
 
             gr2d.setPaint(Color.YELLOW);
-            gameController.getSnakeHeads().forEach(snakePart ->
+            fieldWrapper.getSnakeHeads().forEach(snakePart ->
                     g.fillRect(snakePart.getPosition().x*SELL_SIZE, snakePart.getPosition().y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
 
             gr2d.setPaint(Color.RED);
-            gameController.getApples().forEach(snakePart ->
+            fieldWrapper.getApples().forEach(snakePart ->
                     g.fillRect(snakePart.getPosition().x*SELL_SIZE, snakePart.getPosition().y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
 
         }
@@ -64,8 +69,9 @@ public class Frame extends JFrame {
 
     public void execute() throws Exception {
         gameController = new GameController();
-        WIN_HEIGHT = gameController.fieldHeight * SELL_SIZE+37;
-        WIN_WIDTH = gameController.fieldWidth * SELL_SIZE+14;
+        fieldWrapper = gameController.getFieldWrapper();
+        WIN_HEIGHT = fieldWrapper.getHeight() * SELL_SIZE+37;
+        WIN_WIDTH = fieldWrapper.getWidth() * SELL_SIZE+14;
 
         this.setBounds(100, 100, WIN_WIDTH, WIN_HEIGHT);
 
@@ -107,6 +113,7 @@ public class Frame extends JFrame {
         }
         //end music
         */
+        SnakeBot bot = new SnakeBot(gameController.snakes.get(1));
         Timer t = new Timer();
         t.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -115,6 +122,7 @@ public class Frame extends JFrame {
                     gameController.snakes.get(0).tryChangeSnakeDirection(snakeDir);
                     isDirectionChanged = false;
                 };
+                //bot.getNextDirection();
                 gameController.tick();
                 if(gameController.isGameOver())
                     t.cancel();

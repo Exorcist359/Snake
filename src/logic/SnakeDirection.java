@@ -6,10 +6,10 @@ public enum SnakeDirection {
     Left,
     Right;
 
-    public static boolean isOppositeDirection(SnakeDirection first_dir, SnakeDirection second_dir) {
-        return (first_dir == SnakeDirection.Down && second_dir == SnakeDirection.Up) ||
-                (first_dir == SnakeDirection.Up && second_dir == SnakeDirection.Down)||
-                (first_dir == SnakeDirection.Right && second_dir == SnakeDirection.Left)||
-                (first_dir == SnakeDirection.Left && second_dir == SnakeDirection.Right);
+    public boolean isOppositeDirection(SnakeDirection second_dir) {
+        return (this == SnakeDirection.Down && second_dir == SnakeDirection.Up) ||
+                (this == SnakeDirection.Up && second_dir == SnakeDirection.Down)||
+                (this == SnakeDirection.Right && second_dir == SnakeDirection.Left)||
+                (this == SnakeDirection.Left && second_dir == SnakeDirection.Right);
     }
 }

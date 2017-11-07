@@ -1,5 +1,4 @@
-/Frame$1.class
-/Frame$2.class
-/Frame$MyPanel.class
-/Frame.class
-/Program.class
+.classpath
+.project
+/Snake.iml
+*.class
