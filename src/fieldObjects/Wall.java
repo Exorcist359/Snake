@@ -8,6 +8,11 @@ public class Wall extends FieldObject {
     }
 
     @Override
+    protected WallWrapper CreateWrapper() {
+        return new WallWrapper(this);
+    }
+
+    @Override
     public boolean isWalkable() {
         return false;
     }
@@ -16,6 +21,7 @@ public class Wall extends FieldObject {
     public boolean isActive() {
         return true;
     }
+
     @Override
     public void tick() {
     }

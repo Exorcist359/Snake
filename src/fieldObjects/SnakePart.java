@@ -2,6 +2,7 @@ package fieldObjects;
 
 import logic.GameModel;
 import logic.Point;
+import logic.Snake;
 
 public class SnakePart extends FieldObject {
     private SnakePart previous;
@@ -17,7 +18,12 @@ public class SnakePart extends FieldObject {
         super(position);
         this.previous = previous;
     }
-    
+
+    @Override
+    protected SnakePartWrapper CreateWrapper() {
+        return new SnakePartWrapper(this);
+    }
+
     public SnakePart getNext() {
         return next;
     }
@@ -38,15 +44,11 @@ public class SnakePart extends FieldObject {
         return isDead;
     }
 
-    public void die() {
-        isDead = true;
-    }
-    
     @Override
     public boolean isWalkable() {
         return false;
     }
-    
+
     @Override
     public boolean isActive() {
         return true;
@@ -62,7 +64,21 @@ public class SnakePart extends FieldObject {
 
     @Override
     public void interactWithSnake(SnakeHead snakeHead, GameModel gameModel) {
-        previous.next = null;
+        previous.setNext(null);
         die();
+    }
+
+    public SnakeHead getHead() {
+        SnakePart current;
+        for (current = this; current.getPrevious() != null; current = getPrevious()) {
+        }
+        return (SnakeHead)current;
+    }
+
+    public void die() {
+        isDead = true;
+        if (next != null) {
+            next.die();
+        }
     }
 }

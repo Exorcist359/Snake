@@ -113,7 +113,7 @@ public class Frame extends JFrame {
         }
         //end music
         */
-        //SnakeBot bot = new SnakeBot(gameController.snakes.get(1));
+        SnakeBot bot = new SnakeBot(gameController.snakes.get(1));
         Timer t = new Timer();
         t.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -122,7 +122,7 @@ public class Frame extends JFrame {
                     gameController.snakes.get(0).tryChangeSnakeDirection(snakeDir);
                     isDirectionChanged = false;
                 };
-                //bot.getNextDirection(gameController.getFieldWrapper());
+                bot.getNextDirection(gameController.getFieldWrapper());
                 gameController.tick();
                 if(gameController.isGameOver())
                     t.cancel();

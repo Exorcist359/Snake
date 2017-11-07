@@ -1,6 +1,7 @@
 package logic;
 
 import fieldObjects.Apple;
+import fieldObjects.AppleWrapper;
 import fieldObjects.FieldObject;
 import fieldObjects.SnakeHead;
 
@@ -18,7 +19,7 @@ public class SnakeBot{
     public void getNextDirection(FieldWrapper fieldWrapper){
         //Change for situation: if apple's count will be more then 1
         //It's very simple snake's direction choicer, and TODO Snake need BFS
-        ArrayList<Apple> apples = fieldWrapper.getApples();
+        ArrayList<AppleWrapper> apples = fieldWrapper.getApples();
         //May be do choice more best apple
         Point applePoint = apples.get(0).getPosition(); //here will be choice
         SnakeDirection nextDirection;

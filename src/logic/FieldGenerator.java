@@ -71,7 +71,7 @@ public class FieldGenerator {
                 "                        ",
                 "                        ",
                 "                        ",
-                "                 A      ",
+                "       V         A      ",
                 "                        ",
                 "                        ",
                 "                        ",

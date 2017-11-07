@@ -21,7 +21,12 @@ public class SnakeHead extends SnakePart {
     public void setDirection(SnakeDirection direction) {
         this.direction = direction;
     }
-    
+
+    @Override
+    protected SnakeHeadWrapper CreateWrapper() {
+        return new SnakeHeadWrapper(this);
+    }
+
     @Override
     public boolean isWalkable() {
         return false;
