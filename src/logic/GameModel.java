@@ -32,9 +32,9 @@ public class GameModel {
     }
     
     public void tick() {
-        field.getAllObjects().forEach(FieldObject::tick);
+        //field.getAllObjects().forEach(FieldObject::tick);
         field.getAllObjects().forEach(fieldObject -> {
-            //fieldObject.tick();
+            fieldObject.tick();
             if (fieldObject instanceof SnakeHead) {
                 SnakeHead head = (SnakeHead)fieldObject;
                 field.getAllObjects().forEach(obj -> {
@@ -73,7 +73,9 @@ public class GameModel {
     }
     
     private void killAllSnakePartsFromHead(SnakeHead snakeHead) {
-        for(SnakePart current = snakeHead; current != null; current = current.getNext()){
+        snakeHead.die();
+        for(SnakePart current = snakeHead.getNext(); current != null; current = current.getNext()){
+            current.tick();
             current.die();
         }
     }

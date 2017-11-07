@@ -1,5 +1,6 @@
 package fieldObjects;
 
+import logic.GameModel;
 import logic.Point;
 
 public class SnakePart extends FieldObject {
@@ -57,5 +58,11 @@ public class SnakePart extends FieldObject {
             previousPosition = position;
             this.position = previous.previousPosition;
         }
+    }
+
+    @Override
+    public void interactWithSnake(SnakeHead snakeHead, GameModel gameModel) {
+        previous.next = null;
+        die();
     }
 }

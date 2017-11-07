@@ -8,7 +8,7 @@ public class GameController {
     private FieldWrapper wrapper;
     public final ArrayList<Snake> snakes;
     private GameModel gameModel;
-    private int SEED = 4;
+    private int SEED = 5;
 
     public GameController() {
         FieldGenerator generator = new FieldGenerator();

@@ -1,5 +1,6 @@
 package fieldObjects;
 
+import logic.GameModel;
 import logic.SnakeDirection;
 import logic.Field;
 
@@ -39,4 +40,9 @@ public class SnakeHead extends SnakePart {
         }
     }
 
+    @Override
+    public void interactWithSnake(SnakeHead snakeHead, GameModel gameModel) {
+        gameModel.killSnake(this);
+        gameModel.killSnake(snakeHead);
+    }
 }
