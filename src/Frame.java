@@ -122,7 +122,8 @@ public class Frame extends JFrame {
                     gameController.snakes.get(0).tryChangeSnakeDirection(snakeDir);
                     isDirectionChanged = false;
                 };
-                //bot.getNextDirection();
+                bot.getNextDirection(gameController.getFieldWrapper());
+
                 gameController.tick();
                 if(gameController.isGameOver())
                     t.cancel();

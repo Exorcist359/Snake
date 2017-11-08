@@ -1,6 +1,7 @@
 package logic;
 
 import fieldObjects.*;
+import viewFieldObject.*;
 
 import java.util.ArrayList;
 
@@ -19,38 +20,42 @@ public class FieldWrapper {
         return field.height;
     }
 
-    public ArrayList<FieldObject> getAllObjects() {
-        return new ArrayList<FieldObject>(field.getAllObjects());
+    public ArrayList<FieldObjectWrapper> getAllObjects() {
+        ArrayList<FieldObjectWrapper> wrappers = new ArrayList<>();
+        field.getAllObjects().forEach(fieldObject -> {
+            wrappers.add(fieldObject.getWrapper());
+        });
+        return wrappers;
     }
 
-    public ArrayList<Wall> getWalls() {
-        ArrayList<Wall> walls = new ArrayList<>();
+    public ArrayList<WallWrapper> getWalls() {
+        ArrayList<WallWrapper> walls = new ArrayList<>();
         field.getAllObjects().forEach(fieldObject -> {
-            if (fieldObject instanceof Wall) walls.add((Wall) fieldObject);
+            if (fieldObject instanceof Wall) walls.add((WallWrapper) fieldObject.getWrapper());
         });
         return walls;
     }
 
-    public ArrayList<Apple> getApples() {
-        ArrayList<Apple> apples = new ArrayList<>();
+    public ArrayList<AppleWrapper> getApples() {
+        ArrayList<AppleWrapper> apples = new ArrayList<>();
         field.getAllObjects().forEach(fieldObject -> {
-            if (fieldObject instanceof Apple) apples.add((Apple) fieldObject);
+            if (fieldObject instanceof Apple) apples.add((AppleWrapper) fieldObject.getWrapper());
         });
         return apples;
     }
 
-    public ArrayList<SnakePart> getSnakeParts() {
-        ArrayList<SnakePart> snakeParts = new ArrayList<>();
+    public ArrayList<SnakePartWrapper> getSnakeParts() {
+        ArrayList<SnakePartWrapper> snakeParts = new ArrayList<>();
         field.getAllObjects().forEach(fieldObject -> {
-            if (fieldObject instanceof SnakePart) snakeParts.add((SnakePart) fieldObject);
+            if (fieldObject instanceof SnakePart) snakeParts.add((SnakePartWrapper) fieldObject.getWrapper());
         });
         return snakeParts;
     }
 
-    public ArrayList<SnakeHead> getSnakeHeads() {
-        ArrayList<SnakeHead> snakeHeads = new ArrayList<>();
+    public ArrayList<SnakeHeadWrapper> getSnakeHeads() {
+        ArrayList<SnakeHeadWrapper> snakeHeads = new ArrayList<>();
         field.getAllObjects().forEach(fieldObject -> {
-            if (fieldObject instanceof SnakeHead) snakeHeads.add((SnakeHead) fieldObject);
+            if (fieldObject instanceof SnakeHead) snakeHeads.add((SnakeHeadWrapper) fieldObject.getWrapper());
         });
         return snakeHeads;
     }

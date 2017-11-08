@@ -73,7 +73,9 @@ public class GameModel {
     }
     
     private void killAllSnakePartsFromHead(SnakeHead snakeHead) {
-        for(SnakePart current = snakeHead; current != null; current = current.getNext()){
+        snakeHead.die();
+        for(SnakePart current = snakeHead.getNext(); current != null; current = current.getNext()){
+            current.tick();
             current.die();
         }
     }

@@ -1,6 +1,7 @@
 package fieldObjects;
 import logic.GameModel;
 import logic.Point;
+import viewFieldObject.AppleWrapper;
 
 public class Apple extends FieldObject {
     private boolean isActive = true;
@@ -18,7 +19,12 @@ public class Apple extends FieldObject {
         gameModel.increaseSnake(snakeHead);
         isActive = false;
     }
-    
+
+    @Override
+    protected AppleWrapper CreateWrapper() {
+        return new AppleWrapper(this);
+    }
+
     @Override
     public boolean isWalkable() {
         return true;

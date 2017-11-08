@@ -1,7 +1,9 @@
 package fieldObjects;
 
+import logic.GameModel;
 import logic.SnakeDirection;
 import logic.Field;
+import viewFieldObject.SnakeHeadWrapper;
 
 public class SnakeHead extends SnakePart {
     private SnakeDirection direction;
@@ -20,7 +22,12 @@ public class SnakeHead extends SnakePart {
     public void setDirection(SnakeDirection direction) {
         this.direction = direction;
     }
-    
+
+    @Override
+    protected SnakeHeadWrapper CreateWrapper() {
+        return new SnakeHeadWrapper(this);
+    }
+
     @Override
     public boolean isWalkable() {
         return false;
@@ -39,4 +46,9 @@ public class SnakeHead extends SnakePart {
         }
     }
 
+    @Override
+    public void interactWithSnake(SnakeHead snakeHead, GameModel gameModel) {
+        gameModel.killSnake(this);
+        gameModel.killSnake(snakeHead);
+    }
 }
