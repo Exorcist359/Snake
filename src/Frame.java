@@ -3,9 +3,7 @@ import java.awt.event.*;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.*;
-
 import logic.*;
-
 
 public class Frame extends JFrame {
     private GameController gameController;
@@ -57,7 +55,7 @@ public class Frame extends JFrame {
 
         hasBot = withInnerBot;
         if (hasBot) {
-            InitBot();
+            InitExternalBot();
         }
     }
 
@@ -81,7 +79,7 @@ public class Frame extends JFrame {
         setVisible(true);
     }
 
-    private void InitBot() {
+    private void InitExternalBot() {
 
     }
 
@@ -141,7 +139,7 @@ public class Frame extends JFrame {
             if (bot == null) {
                 // * * *
                 // initialize bot from jars !!!
-                bot = new SnakeBot();
+                bot = new MyBot();
             }
             bot.SetSnake(gameController.snakes.get(1));
         }

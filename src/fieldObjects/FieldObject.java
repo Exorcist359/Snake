@@ -1,11 +1,11 @@
 package fieldObjects;
 import logic.GameModel;
 import logic.Point;
-import viewFieldObject.FieldObjectView;
+import viewFieldObject.FieldObjectWrapper;
 
 public abstract class FieldObject {
     protected Point position;
-    protected FieldObjectView wrapper;
+    protected FieldObjectWrapper wrapper;
 
     public FieldObject(Point position) {
         this.position = position;
@@ -19,7 +19,7 @@ public abstract class FieldObject {
         return position;
     }
 
-    public FieldObjectView getWrapper() {
+    public FieldObjectWrapper getWrapper() {
         return wrapper;
     }
 
@@ -30,5 +30,5 @@ public abstract class FieldObject {
     }
     
     public abstract void tick();
-    protected abstract FieldObjectView CreateWrapper();
+    protected abstract FieldObjectWrapper CreateWrapper();
 }
