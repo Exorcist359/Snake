@@ -2,10 +2,9 @@ package viewFieldObject;
 
 import fieldObjects.SnakeHead;
 import logic.SnakeDirection;
-import viewFieldObject.SnakePartWrapper;
 
-public class SnakeHeadWrapper extends SnakePartWrapper {
-    public SnakeHeadWrapper(SnakeHead snakeHead) {
+public class SnakeHeadView extends SnakePartView {
+    public SnakeHeadView(SnakeHead snakeHead) {
         super(snakeHead);
     }
 

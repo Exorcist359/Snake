@@ -1,7 +1,7 @@
 package fieldObjects;
 
 import logic.Point;
-import viewFieldObject.WallWrapper;
+import viewFieldObject.WallView;
 
 public class Wall extends FieldObject {
     public Wall(int x, int y) {
@@ -9,8 +9,8 @@ public class Wall extends FieldObject {
     }
 
     @Override
-    protected WallWrapper CreateWrapper() {
-        return new WallWrapper(this);
+    protected WallView CreateWrapper() {
+        return new WallView(this);
     }
 
     @Override

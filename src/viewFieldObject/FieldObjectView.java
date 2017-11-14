@@ -3,10 +3,10 @@ package viewFieldObject;
 import fieldObjects.FieldObject;
 import logic.Point;
 
-public abstract class FieldObjectWrapper {
+public abstract class FieldObjectView {
     protected FieldObject source;
 
-    public FieldObjectWrapper(FieldObject obj) {
+    public FieldObjectView(FieldObject obj) {
         source = obj;
     }
 

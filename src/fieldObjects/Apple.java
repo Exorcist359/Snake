@@ -1,7 +1,7 @@
 package fieldObjects;
 import logic.GameModel;
 import logic.Point;
-import viewFieldObject.AppleWrapper;
+import viewFieldObject.AppleView;
 
 public class Apple extends FieldObject {
     private boolean isActive = true;
@@ -21,8 +21,8 @@ public class Apple extends FieldObject {
     }
 
     @Override
-    protected AppleWrapper CreateWrapper() {
-        return new AppleWrapper(this);
+    protected AppleView CreateWrapper() {
+        return new AppleView(this);
     }
 
     @Override

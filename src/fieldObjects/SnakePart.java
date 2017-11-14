@@ -2,7 +2,7 @@ package fieldObjects;
 
 import logic.GameModel;
 import logic.Point;
-import viewFieldObject.SnakePartWrapper;
+import viewFieldObject.SnakePartView;
 
 public class SnakePart extends FieldObject {
     private SnakePart previous;
@@ -20,8 +20,8 @@ public class SnakePart extends FieldObject {
     }
 
     @Override
-    protected SnakePartWrapper CreateWrapper() {
-        return new SnakePartWrapper(this);
+    protected SnakePartView CreateWrapper() {
+        return new SnakePartView(this);
     }
 
     public SnakePart getNext() {

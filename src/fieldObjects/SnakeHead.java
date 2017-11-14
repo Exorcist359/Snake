@@ -3,7 +3,7 @@ package fieldObjects;
 import logic.GameModel;
 import logic.SnakeDirection;
 import logic.Field;
-import viewFieldObject.SnakeHeadWrapper;
+import viewFieldObject.SnakeHeadView;
 
 public class SnakeHead extends SnakePart {
     private SnakeDirection direction;
@@ -24,8 +24,8 @@ public class SnakeHead extends SnakePart {
     }
 
     @Override
-    protected SnakeHeadWrapper CreateWrapper() {
-        return new SnakeHeadWrapper(this);
+    protected SnakeHeadView CreateWrapper() {
+        return new SnakeHeadView(this);
     }
 
     @Override

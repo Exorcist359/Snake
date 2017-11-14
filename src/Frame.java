@@ -1,19 +1,17 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.sql.Wrapper;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.*;
 
-import logic.FieldWrapper;
-import logic.GameController;
-import logic.SnakeBot;
-import logic.SnakeDirection;
+import logic.*;
 
 
 public class Frame extends JFrame {
     private GameController gameController;
-    private FieldWrapper fieldWrapper;
+    private FieldView fieldView;
+    private ISnakeBot bot;
+    private boolean hasBot;
     private int WIN_WIDTH = 500;
     private int WIN_HEIGHT = 500;
 
@@ -33,19 +31,19 @@ public class Frame extends JFrame {
 
 
             gr2d.setPaint(Color.BLACK);
-            fieldWrapper.getWalls().forEach(wall ->
+            fieldView.getWalls().forEach(wall ->
                     g.fillRect(wall.getPosition().x*SELL_SIZE, wall.getPosition().y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
 
             gr2d.setPaint(Color.GREEN);
-            fieldWrapper.getSnakeParts().forEach(snakePart ->
+            fieldView.getSnakeParts().forEach(snakePart ->
                     g.fillRect(snakePart.getPosition().x*SELL_SIZE, snakePart.getPosition().y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
 
             gr2d.setPaint(Color.YELLOW);
-            fieldWrapper.getSnakeHeads().forEach(snakePart ->
+            fieldView.getSnakeHeads().forEach(snakePart ->
                     g.fillRect(snakePart.getPosition().x*SELL_SIZE, snakePart.getPosition().y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
 
             gr2d.setPaint(Color.RED);
-            fieldWrapper.getApples().forEach(snakePart ->
+            fieldView.getApples().forEach(snakePart ->
                     g.fillRect(snakePart.getPosition().x*SELL_SIZE, snakePart.getPosition().y*SELL_SIZE, SELL_SIZE, SELL_SIZE));
 
         }
@@ -53,8 +51,27 @@ public class Frame extends JFrame {
 
     private MyPanel panel = new MyPanel();
 
-    public Frame() {
+    public Frame(boolean withInnerBot) {
         super("Snake");
+        InitFrame();
+
+        hasBot = withInnerBot;
+        if (hasBot) {
+            InitBot();
+        }
+    }
+
+    public Frame(ISnakeBot bot) {
+        super("Snake");
+        InitFrame();
+
+        hasBot = true;
+        if (hasBot) {
+            this.bot = bot;
+        }
+    }
+
+    private void InitFrame() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getContentPane().setBackground(Color.white);
 
@@ -64,14 +81,21 @@ public class Frame extends JFrame {
         setVisible(true);
     }
 
+    private void InitBot() {
+
+    }
+
     private SnakeDirection snakeDir;
     private boolean isDirectionChanged = false;
 
     public void execute() throws Exception {
-        gameController = new GameController();
-        fieldWrapper = gameController.getFieldWrapper();
-        WIN_HEIGHT = fieldWrapper.getHeight() * SELL_SIZE+37;
-        WIN_WIDTH = fieldWrapper.getWidth() * SELL_SIZE+14;
+        int playersCount = 1;
+        if (hasBot)
+            playersCount = 2;
+        gameController = new GameController(playersCount);
+        fieldView = gameController.getFieldWrapper();
+        WIN_HEIGHT = fieldView.getHeight() * SELL_SIZE+37;
+        WIN_WIDTH = fieldView.getWidth() * SELL_SIZE+14;
 
         this.setBounds(100, 100, WIN_WIDTH, WIN_HEIGHT);
 
@@ -113,7 +137,14 @@ public class Frame extends JFrame {
         }
         //end music
         */
-        SnakeBot bot = new SnakeBot(gameController.snakes.get(1));
+        if (hasBot) {
+            if (bot == null) {
+                // * * *
+                // initialize bot from jars !!!
+                bot = new SnakeBot();
+            }
+            bot.SetSnake(gameController.snakes.get(1));
+        }
         Timer t = new Timer();
         t.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -122,8 +153,9 @@ public class Frame extends JFrame {
                     gameController.snakes.get(0).tryChangeSnakeDirection(snakeDir);
                     isDirectionChanged = false;
                 };
-                bot.getNextDirection(gameController.getFieldWrapper());
-
+                if (hasBot) {
+                    bot.getNextDirection(gameController.getFieldWrapper());
+                }
                 gameController.tick();
                 if(gameController.isGameOver())
                     t.cancel();
