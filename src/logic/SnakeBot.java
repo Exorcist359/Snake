@@ -6,12 +6,14 @@ import views.fieldObjects.AppleWrapper;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class SnakeBot{
+public class SnakeBot implements ISnakeBot{
 
     private Snake snake;
 
-    public SnakeBot(Snake snake) {
-        this.snake = snake;
+    public void SetSnake(Snake snake) {
+        if (this.snake == null) { // some senseless
+            this.snake = snake;
+        }
     }
 
     public void getNextDirection(FieldWrapper fieldWrapper){

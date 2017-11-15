@@ -10,7 +10,8 @@ public class GameController {
     private GameModel gameModel;
     private int SEED = 4;
 
-    public GameController() {
+    public GameController(int playersCount) {
+        //playersCount -> SEED;
         FieldGenerator generator = new FieldGenerator();
         Field field = generator.generate(SEED);
         wrapper = new FieldWrapper(field);
