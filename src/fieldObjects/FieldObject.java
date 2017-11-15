@@ -1,7 +1,7 @@
 package fieldObjects;
 import logic.GameModel;
 import logic.Point;
-import viewFieldObject.FieldObjectWrapper;
+import views.fieldObjects.FieldObjectWrapper;
 
 public abstract class FieldObject {
     protected Point position;

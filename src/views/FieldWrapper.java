@@ -1,7 +1,8 @@
-package logic;
+package views;
 
 import fieldObjects.*;
-import viewFieldObject.*;
+import logic.Field;
+import views.fieldObjects.*;
 
 import java.util.ArrayList;
 

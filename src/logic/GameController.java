@@ -1,6 +1,6 @@
 package logic;
 
-import fieldObjects.*;
+import views.FieldWrapper;
 
 import java.util.ArrayList;
 

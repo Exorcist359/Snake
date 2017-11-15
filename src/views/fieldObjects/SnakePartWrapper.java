@@ -1,6 +1,8 @@
-package viewFieldObject;
+package views.fieldObjects;
 
 import fieldObjects.SnakePart;
+import views.fieldObjects.FieldObjectWrapper;
+import views.fieldObjects.SnakeHeadWrapper;
 
 public class SnakePartWrapper extends FieldObjectWrapper {
     public SnakePartWrapper(SnakePart snakePart) {

@@ -1,11 +1,10 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.sql.Wrapper;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.*;
 
-import logic.FieldWrapper;
+import views.FieldWrapper;
 import logic.GameController;
 import logic.SnakeBot;
 import logic.SnakeDirection;
@@ -31,6 +30,7 @@ public class Frame extends JFrame {
             super.paint(g);
             Graphics2D gr2d = (Graphics2D) g;
 
+            if (gameController.isGameOver()) gr2d.drawString("GAME OVER", 15, 15);
 
             gr2d.setPaint(Color.BLACK);
             fieldWrapper.getWalls().forEach(wall ->

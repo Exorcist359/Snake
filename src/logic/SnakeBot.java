@@ -1,6 +1,7 @@
 package logic;
 
-import viewFieldObject.AppleWrapper;
+import views.FieldWrapper;
+import views.fieldObjects.AppleWrapper;
 
 import java.util.ArrayList;
 import java.util.Random;

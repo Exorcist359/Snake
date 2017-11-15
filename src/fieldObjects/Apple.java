@@ -1,7 +1,7 @@
 package fieldObjects;
 import logic.GameModel;
 import logic.Point;
-import viewFieldObject.AppleWrapper;
+import views.fieldObjects.AppleWrapper;
 
 public class Apple extends FieldObject {
     private boolean isActive = true;

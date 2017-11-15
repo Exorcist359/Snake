@@ -1,4 +1,4 @@
-package viewFieldObject;
+package views.fieldObjects;
 
 import fieldObjects.FieldObject;
 import logic.Point;
