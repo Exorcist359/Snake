@@ -1,16 +1,22 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.*;
 
 import logic.*;
-import views.FieldWrapper;
+import views.FieldView;
 
 
 public class Frame extends JFrame {
     private GameController gameController;
-    private FieldWrapper fieldView;
+    private FieldView fieldView;
     private ISnakeBot bot;
     private boolean hasBot;
     private int WIN_WIDTH = 500;
@@ -58,8 +64,23 @@ public class Frame extends JFrame {
         InitFrame();
 
         hasBot = withInnerBot;
+
         if (hasBot) {
-            InitExternalBot();
+            try {
+                InitExternalBot();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -83,8 +104,22 @@ public class Frame extends JFrame {
         setVisible(true);
     }
 
-    private void InitExternalBot() {
+    private void InitExternalBot() throws MalformedURLException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, ClassNotFoundException, InstantiationException {
+        /*URL u = new URL("file://A:/Programs/IntelliJ IDEA Community Edition 2017.2.5/!Projects/Snake/jars/botek.jar");
 
+
+        Method method = URLClassLoader.class.getDeclaredMethod("addURL", new Class[]{URL.class});
+        method.setAccessible(true);
+        method.invoke(ClassLoader.getSystemClassLoader(), new Object[]{u});
+
+        Class<?> myClassFromMyBot = ClassLoader.getSystemClassLoader().loadClass("MyBot");
+
+        myClassFromMyBot.getInterfaces();
+        Constructor<?> constructor = myClassFromMyBot.getConstructor();
+        Object obj = constructor.newInstance();
+        //bot = new SnakeBot();
+        bot = (ISnakeBot) obj;*/
+        bot = new SnakeBot();
     }
 
     private SnakeDirection snakeDir;
@@ -95,7 +130,7 @@ public class Frame extends JFrame {
         if (hasBot)
             playersCount = 2;
         gameController = new GameController(playersCount);
-        fieldView = gameController.getFieldWrapper();
+        fieldView = gameController.getFieldView();
         WIN_HEIGHT = fieldView.getHeight() * SELL_SIZE+37;
         WIN_WIDTH = fieldView.getWidth() * SELL_SIZE+14;
 
@@ -126,27 +161,15 @@ public class Frame extends JFrame {
             }
         });
 
-        /*//start music
-        AudioInputStream ais = AudioSystem.getAudioInputStream(new java.io.File(
-                "src\\music\\02-Faint.wav"));
-
-        Clip clip = AudioSystem.getClip();
-
-        if (true) {
-            clip.open(ais);
-            clip.setFramePosition(0);
-            clip.start();
-        }
-        //end music
-        */
-        if (hasBot) {
-            if (bot == null) {
+        if (hasBot || true) {
+            if (bot == null || true) {
                 // * * *
                 // initialize bot from jars !!!
-                bot = new SnakeBot();
+
             }
             bot.SetSnake(gameController.snakes.get(1));
         }
+
         Timer t = new Timer();
         t.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -156,7 +179,15 @@ public class Frame extends JFrame {
                     isDirectionChanged = false;
                 };
                 if (hasBot) {
-                    bot.getNextDirection(gameController.getFieldWrapper());
+                    bot.getNextDirection(gameController.getFieldView());
+                    /*
+                    try {
+                        Method method = myClassFromMyBot.getMethod("getNextDirection");
+                        method.invoke(obj, gameController.getFieldView());
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }*/
                 }
                 gameController.tick();
                 if(gameController.isGameOver())

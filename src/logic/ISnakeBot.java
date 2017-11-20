@@ -1,8 +1,8 @@
 package logic;
 
-import views.FieldWrapper;
+import views.FieldView;
 
 public interface ISnakeBot {
     void SetSnake(Snake snake);
-    void getNextDirection(FieldWrapper fieldWrapper);
+    void getNextDirection(FieldView fieldView);
 }

@@ -6,10 +6,10 @@ import views.fieldObjects.*;
 
 import java.util.ArrayList;
 
-public class FieldWrapper {
+public class FieldView {
     private Field field;
 
-    public FieldWrapper(Field field) {
+    public FieldView(Field field) {
         this.field = field;
     }
 

@@ -1,11 +1,11 @@
 package logic;
 
-import views.FieldWrapper;
+import views.FieldView;
 
 import java.util.ArrayList;
 
 public class GameController {
-    private FieldWrapper wrapper;
+    private FieldView wrapper;
     public final ArrayList<Snake> snakes;
     private GameModel gameModel;
     private int SEED = 4;
@@ -14,7 +14,7 @@ public class GameController {
         //playersCount -> SEED;
         FieldGenerator generator = new FieldGenerator();
         Field field = generator.generate(SEED);
-        wrapper = new FieldWrapper(field);
+        wrapper = new FieldView(field);
         gameModel = new GameModel(field);
         snakes = gameModel.getSnakes();
     }
@@ -27,7 +27,7 @@ public class GameController {
         return gameModel.getSnakes().get(0).isDead();
     }
 
-    public FieldWrapper getFieldWrapper() {
+    public FieldView getFieldView() {
         return wrapper;
     }
 }
