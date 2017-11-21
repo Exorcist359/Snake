@@ -8,7 +8,7 @@ public class GameController {
     private FieldView wrapper;
     public final ArrayList<Snake> snakes;
     private GameModel gameModel;
-    private int SEED = 4;
+    private int SEED = 0;
 
     public GameController(int playersCount) {
         //playersCount -> SEED;

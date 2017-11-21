@@ -22,7 +22,7 @@ public class Frame extends JFrame {
     private int WIN_WIDTH = 500;
     private int WIN_HEIGHT = 500;
 
-    private int SELL_SIZE = 25;
+    private int SELL_SIZE = 16;
 
     private class MyPanel extends JPanel {
         public MyPanel() {
